@@ -1,0 +1,7 @@
+{
+  "name": "frutify-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
