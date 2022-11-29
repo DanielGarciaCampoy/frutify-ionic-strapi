@@ -1,0 +1,15 @@
+{
+    "app":{
+        "titulo":"Frutería Frutify",
+        "ajustes":"Ajustes:",
+        "contacta":"Contáctanos",
+        "oscuro":"oscuro",
+        "claro":"claro",
+        "espIng":"español/inglés"
+    },
+    "folder":{
+        "home":"Página principal",
+        "comprar":"Tienda",
+        "carrito":"Carrito"
+    }
+}

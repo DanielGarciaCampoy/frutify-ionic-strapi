@@ -1,0 +1,15 @@
+{
+    "app":{
+        "titulo":"Frutify",
+        "ajustes":"Settings:",
+        "contacta":"Contact us:",
+        "oscuro":"dark",
+        "claro":"light",
+        "espIng":"spanish/english"
+    },
+    "folder":{
+        "home":"Home page",
+        "comprar":"Store",
+        "carrito":"Cart"
+    }
+}

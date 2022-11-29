@@ -1,29 +1,43 @@
-<ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+<body>
+  <ion-app>
+    <ion-split-pane contentId="main-content">
+      <ion-menu contentId="main-content" type="overlay">
+        <ion-content>
+          <ion-list id="inbox-list">
+            <!--<ion-list-header style="margin-bottom: 7%;">{{ 'app.titulo' | translate }}</ion-list-header>-->
+            <ion-img src="https://drive.google.com/uc?id=1XkZ2RCuQ1YF5F-SrleyW8h72wiSoX7Tc" alt="logo Frutify" style="width: 60%; margin-bottom: 5%; margin-left: 15%;"></ion-img>
+  
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+                <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                <ion-label *ngIf="p.title=='home'">{{ 'folder.home' | translate }}</ion-label>
+                <ion-label *ngIf="p.title=='comprar'">{{ 'folder.comprar' | translate }}</ion-label>
+                <ion-label *ngIf="p.title=='carrito'">{{ 'folder.carrito' | translate }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+  
+          <h3 style="color: grey"><ion-icon name="cog-sharp" color="success"></ion-icon>{{ 'app.ajustes' | translate }}</h3>
+          <ion-list>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+            <!-- Modo claro / oscuro -->
+            <ion-item>
+              <ion-button (click)="OnToggleDarkMode()" style="margin-bottom: 5%;" color="success"><ion-icon slot="start" name="moon" color="light"></ion-icon>{{ 'app.oscuro' | translate }}</ion-button>
+              <ion-button (click)="OnToggleLightMode()" style="margin-bottom: 5%;" color="success"><ion-icon slot="start" name="sunny-sharp" color="light"></ion-icon>{{ 'app.claro' | translate }}</ion-button>              
             </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
-</ion-app>
+            <!-- Cambiar idioma -->
+            <ion-item lines="full">
+              <ion-button (click)="onLanguage()" style="margin-bottom: 5%;" color="success"><ion-icon name="language-outline" color="light"></ion-icon>{{ 'app.espIng' | translate }}</ion-button>
+            </ion-item>
+          </ion-list>
+          <h3 style="color: grey"><ion-icon name="call-sharp" color="success"></ion-icon>{{'app.contacta' | translate}}</h3>
+          <ion-list>
+            <ion-label style="margin-left: 5%;"><ion-icon name="mail-outline"></ion-icon>edu-frutify@odoo.com</ion-label>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+      <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+  </ion-app>
+  
+</body>

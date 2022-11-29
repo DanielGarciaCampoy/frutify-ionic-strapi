@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,13 +8,43 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'home', url: '/folder/home', icon: 'home' },
+    { title: 'comprar', url: '/folder/comprar', icon: 'pricetag' },
+    { title: 'carrito', url: '/folder/carrito', icon: 'cart' },
+    // { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
+    // { title: 'Trash', url: '/folder/Trash', icon: 'trash' }
+    // { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  public labels = [];
+
+  language = 0; // 0 español, 1 ingles
+  constructor(
+    private translate: TranslateService
+  ) {
+    this.translate.setDefaultLang('es')
+  }
+
+  // Cambiar idioma
+  onLanguage() {
+    this.language = (this.language+1)%2;
+    switch(this.language) {
+      case 0:
+        this.translate.setDefaultLang('es');
+        break;
+      case 1:
+        this.translate.setDefaultLang('en');
+        break;
+    }
+  }
+
+  // Modo claro / oscuro
+  OnToggleDarkMode() {
+    document.body.setAttribute('color-theme', 'dark');
+  }
+
+  OnToggleLightMode() {
+    document.body.setAttribute('color-theme', 'light');
+  }
+
+  
 }

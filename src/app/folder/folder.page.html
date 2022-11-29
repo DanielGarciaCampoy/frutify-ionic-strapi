@@ -3,7 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title *ngIf="folder=='home'">{{ 'folder.home' | translate }}</ion-title>
+    <ion-title *ngIf="folder=='comprar'">{{ 'folder.comprar' | translate }}</ion-title>
+    <ion-title *ngIf="folder=='carrito'">{{ 'folder.carrito' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,8 +16,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <app-home *ngIf="folder=='home'"></app-home>
+  <app-comprar *ngIf="folder=='comprar'"></app-comprar>
+  <app-carrito *ngIf="folder=='carrito'"></app-carrito>
+  
 </ion-content>
