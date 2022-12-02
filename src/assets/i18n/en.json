@@ -5,7 +5,10 @@
         "contacta":"Contact us:",
         "oscuro":"dark",
         "claro":"light",
-        "espIng":"spanish/english"
+        "espIng":"Spanish / English",
+        "info":"About",
+        "modo":"Dark / light mode",
+        "cliente":"Customer"
     },
     "folder":{
         "home":"Home page",
@@ -24,5 +27,8 @@
         "precio":"Price",
         "introNom":"Type the name of the product",
         "introPrice":"Type the price per kg"
+    },
+    "about":{
+        "estudiante":"2ºDAM Student" 
     }
 }

@@ -1,0 +1,11 @@
+ion-card {
+    width: 48%;
+    margin-top: 5%;
+    display: inline-block;
+}
+
+@media (width < 1269px) {
+    ion-card {
+        width: 100%;
+    }
+}

@@ -12,27 +12,28 @@
                 <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
                 <ion-label *ngIf="p.title=='home'">{{ 'folder.home' | translate }}</ion-label>
                 <ion-label *ngIf="p.title=='comprar'">{{ 'folder.comprar' | translate }}</ion-label>
+                <ion-label *ngIf="p.title=='clientes'">{{ 'app.cliente' | translate }}</ion-label>
                 <ion-label *ngIf="p.title=='carrito'">{{ 'folder.carrito' | translate }}</ion-label>
+                <ion-label *ngIf="p.title=='about'">{{ 'app.info' | translate }}</ion-label>
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
   
+          <!-- AJUSTES -->
           <h3 style="color: grey"><ion-icon name="cog-sharp" color="success"></ion-icon>{{ 'app.ajustes' | translate }}</h3>
           <ion-list>
 
             <!-- Modo claro / oscuro -->
+            <ion-label style="margin-left: 5%;">- {{ 'app.modo' | translate }}</ion-label>
             <ion-item>
-              <ion-button (click)="OnToggleDarkMode()" style="margin-bottom: 5%;" color="success"><ion-icon slot="start" name="moon" color="light"></ion-icon>{{ 'app.oscuro' | translate }}</ion-button>
-              <ion-button (click)="OnToggleLightMode()" style="margin-bottom: 5%;" color="success"><ion-icon slot="start" name="sunny-sharp" color="light"></ion-icon>{{ 'app.claro' | translate }}</ion-button>              
+              <ion-button (click)="OnToggleDarkMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="moon" color="light"></ion-icon></ion-button>
+              <ion-button (click)="OnToggleLightMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="sunny-sharp" color="light"></ion-icon></ion-button>              
             </ion-item>
             <!-- Cambiar idioma -->
+            <ion-label style="margin-left: 5%;">- {{ 'app.espIng' | translate }}</ion-label>
             <ion-item lines="full">
-              <ion-button (click)="onLanguage()" style="margin-bottom: 5%;" color="success"><ion-icon name="language-outline" color="light"></ion-icon>{{ 'app.espIng' | translate }}</ion-button>
+              <ion-button (click)="onLanguage()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon name="language-outline" color="light"></ion-icon></ion-button>
             </ion-item>
-          </ion-list>
-          <h3 style="color: grey"><ion-icon name="call-sharp" color="success"></ion-icon>{{'app.contacta' | translate}}</h3>
-          <ion-list>
-            <ion-label style="margin-left: 5%;"><ion-icon name="mail-outline"></ion-icon>edu-frutify@odoo.com</ion-label>
           </ion-list>
         </ion-content>
       </ion-menu>

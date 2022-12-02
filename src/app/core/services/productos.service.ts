@@ -29,13 +29,13 @@ export class ProductosService {
       id:4,
       name:"Limones",
       price:1.70,
-      picture:"https://assets.stickpng.com/images/580b57fcd9996e24bc43c159.png"
+      picture:"https://static.vecteezy.com/system/resources/previews/008/848/363/original/fresh-lemon-fruit-free-png.png"
     },
     {
       id:3,
       name:"Fresas",
       price:2.50,
-      picture:"https://assets.stickpng.com/images/580b57fcd9996e24bc43c1a0.png"
+      picture:"https://assets.stickpng.com/images/580b57fcd9996e24bc43c1a1.png"
     },
     {
       id:3,
@@ -47,7 +47,7 @@ export class ProductosService {
       id:3,
       name:"Uva",
       price:2.70,
-      picture:"https://assets.stickpng.com/images/580b57fcd9996e24bc43c14a.png"
+      picture:"https://www.pngplay.com/wp-content/uploads/6/Black-Grapes-PNG.png"
     },
   ];
 

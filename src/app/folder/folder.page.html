@@ -6,7 +6,9 @@
     </ion-buttons>
     <ion-title *ngIf="folder=='home'">{{ 'folder.home' | translate }}</ion-title>
     <ion-title *ngIf="folder=='comprar'">{{ 'folder.comprar' | translate }}</ion-title>
+    <ion-title *ngIf="folder=='clientela'">{{ 'app.cliente' | translate }}</ion-title>
     <ion-title *ngIf="folder=='carrito'">{{ 'folder.carrito' | translate }}</ion-title>
+    <ion-title *ngIf="folder=='about'">{{ 'app.info' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -24,5 +26,5 @@
   <app-home *ngIf="folder=='home'"></app-home>
   <app-comprar *ngIf="folder=='comprar'"></app-comprar>
   <app-carrito *ngIf="folder=='carrito'"></app-carrito>
-  
+  <app-about *ngIf="folder=='about'"></app-about>
 </ion-content>

@@ -10,9 +10,9 @@ export class AppComponent {
   public appPages = [
     { title: 'home', url: '/folder/home', icon: 'home' },
     { title: 'comprar', url: '/folder/comprar', icon: 'pricetag' },
+    { title: 'clientes', url: '/folder/clientela', icon: 'people' },
     { title: 'carrito', url: '/folder/carrito', icon: 'cart' },
-    // { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    // { title: 'Trash', url: '/folder/Trash', icon: 'trash' }
+    { title: 'about', url: '/folder/about', icon: 'information-circle' }
     // { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
   public labels = [];

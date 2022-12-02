@@ -5,7 +5,10 @@
         "contacta":"Contáctanos",
         "oscuro":"oscuro",
         "claro":"claro",
-        "espIng":"español/inglés"
+        "espIng":"Español / Inglés",
+        "info":"Información",
+        "modo":"Modo oscuro / claro",
+        "cliente":"Clientes"
     },
     "folder":{
         "home":"Página principal",
@@ -24,5 +27,8 @@
         "precio":"Precio",
         "introNom":"Introduzca el nombre del producto",
         "introPrice":"Introduzca el precio por kg"
+    },
+    "about":{
+        "estudiante":"Estudiante de 2ºDAM" 
     }
 }

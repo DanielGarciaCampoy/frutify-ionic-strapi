@@ -19,6 +19,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { ComprarComponent } from './components/comprar/comprar.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
       })
   ],
   declarations: [
-    FolderPage, HomeComponent, ComprarComponent, CarritoComponent 
+    FolderPage, HomeComponent, ComprarComponent, CarritoComponent, AboutComponent
   ]
 })
 export class FolderPageModule {}
