@@ -11,43 +11,43 @@ export class ProductosService {
       id:1,
       name:"Naranjas",
       price:1,
-      picture:"https://cdn.pixabay.com/photo/2016/02/25/17/08/fruit-1222488_960_720.png"
+      picture:"https://drive.google.com/uc?id=1qQVAcQkqgzZ5bA2SeenhTu739cxy0kGD"
     },
     {
       id:2,
       name:"Plátano",
       price:2.9,
-      picture:"https://cdn.pixabay.com/photo/2016/02/23/17/29/banana-1218133_960_720.png"
+      picture:"https://drive.google.com/uc?id=1g19m0jxLZk5pnE8jVB-5GaBZPKdYp6wm"
     },
     {
       id:3,
       name:"Sandía",
       price:1.70,
-      picture:"https://www.pngmart.com/files/8/Watermelon-PNG-Transparent-Image.png"
+      picture:"https://drive.google.com/uc?id=1-9DWtgSf6lJScXe5zgz3u_913yg70ttA"
     },
     {
       id:4,
       name:"Limones",
       price:1.70,
-      picture:"https://static.vecteezy.com/system/resources/previews/008/848/363/original/fresh-lemon-fruit-free-png.png"
+      picture:"https://drive.google.com/uc?id=1nAQdfTr_IxNLQ58iWA92klkTR_lZPLY-"
     },
     {
-      id:3,
+      id:5,
       name:"Fresas",
       price:2.50,
-      picture:"https://assets.stickpng.com/images/580b57fcd9996e24bc43c1a1.png"
+      picture:"https://drive.google.com/uc?id=13ypBRHwa5XsW6-_dCK5dkwvoIqfQQhF5"
     },
     {
-      id:3,
+      id:6,
       name:"Manzanas",
       price: 2.50,
-      picture:"https://static.vecteezy.com/system/resources/previews/008/848/360/non_2x/fresh-apple-fruit-free-png.png"
+      picture:"https://drive.google.com/uc?id=1YFBlz8BAEJSVrlJun0MKEZiP__hVcz5e"
     },
     {
-      id:3,
+      id:7,
       name:"Uva",
       price:2.70,
-      picture:"https://www.pngplay.com/wp-content/uploads/6/Black-Grapes-PNG.png"
+      picture:"https://drive.google.com/uc?id=1H71KvRoPx_6tM64d-dc11bF6n6I-C9bV"
     },
   ];
 

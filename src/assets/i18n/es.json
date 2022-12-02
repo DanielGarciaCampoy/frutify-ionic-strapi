@@ -30,5 +30,8 @@
     },
     "about":{
         "estudiante":"Estudiante de 2ºDAM" 
+    },
+    "home":{
+        "bienvenido":"¡Bienvenido a Frutify!"
     }
 }
