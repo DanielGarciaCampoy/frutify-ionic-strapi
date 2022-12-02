@@ -11,5 +11,18 @@
         "home":"Home page",
         "comprar":"Store",
         "carrito":"Cart"
+    },
+    "comprar":{
+        "prodVen":"Products we sell:"
+    },
+    "prod-detail":{
+        "addP":"Add product",
+        "modificarP":"Modify product",
+        "add":"Add",
+        "modificar":"Modify",
+        "nombre":"Name",
+        "precio":"Price",
+        "introNom":"Type the name of the product",
+        "introPrice":"Type the price per kg"
     }
 }

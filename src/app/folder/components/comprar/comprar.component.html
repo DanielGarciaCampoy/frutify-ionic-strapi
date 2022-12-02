@@ -1,3 +1,7 @@
-<p>
-  comprar works!
-</p>
+<ion-list>
+  <ion-item>
+    <ion-button slot="start" (click)="onNewProducto()" style="margin:10px;width:50px;height:50px;--border-radius:50%" icon-only><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button>
+    <p>{{ 'comprar.prodVen' | translate }}</p>
+  </ion-item>
+  <app-producto *ngFor="let producto of getProductos()" [producto]="producto" (onEdit)="onEditProducto($event)" (onDelete)="onDeleteProducto($event)"></app-producto>
+</ion-list>

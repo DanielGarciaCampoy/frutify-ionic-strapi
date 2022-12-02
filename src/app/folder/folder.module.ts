@@ -8,10 +8,11 @@ import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
 
+import { CoreModule } from '../core/core.module';
+
 // Translate
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { createTranslateLoader } from '../core/utils/translate.utils';
-import { CoreModule } from '../core/core.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 // Componentes

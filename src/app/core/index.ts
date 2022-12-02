@@ -1,0 +1,1 @@
+export * from './components/producto/producto.component'
