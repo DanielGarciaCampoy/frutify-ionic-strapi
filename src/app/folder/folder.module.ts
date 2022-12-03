@@ -20,26 +20,27 @@ import { HomeComponent } from './components/home/home.component';
 import { ComprarComponent } from './components/comprar/comprar.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { AboutComponent } from './components/about/about.component';
+import { ClientelaComponent } from "./components/clientela/clientela.component";
 
 @NgModule({
-  imports: [
-    CoreModule,
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    FolderPageRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    TranslateModule.forChild({
-      loader: {
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [HttpClient]
-      }
-      })
-  ],
-  declarations: [
-    FolderPage, HomeComponent, ComprarComponent, CarritoComponent, AboutComponent
-  ]
+    declarations: [
+        FolderPage, HomeComponent, ComprarComponent, CarritoComponent, ClientelaComponent, AboutComponent
+    ],
+    imports: [
+        CoreModule,
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        FolderPageRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        TranslateModule.forChild({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        }),
+    ]
 })
 export class FolderPageModule {}
