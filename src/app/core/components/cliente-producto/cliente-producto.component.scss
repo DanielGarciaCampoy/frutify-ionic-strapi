@@ -2,3 +2,23 @@ ion-avatar {
     width: 100px;
     height: auto;
 }
+
+ion-item {
+    width: 50%;
+    display: inline-block;
+}
+
+@media (width < 1200px) {
+    ion-item {
+        width: 100%;
+    }
+}
+
+@media (width < 450px) {
+    ion-avatar {
+        width: 50px;
+    }
+    #haComprado {
+        display: none;
+    }
+}
