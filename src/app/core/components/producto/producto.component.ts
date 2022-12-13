@@ -11,7 +11,7 @@ export class ProductoComponent implements OnInit {
 
   @Output() onEdit = new EventEmitter;
   @Output() onDelete = new EventEmitter;
-  @Input('producto') producto:Producto;
+  @Input() producto:Producto | undefined;
   constructor(private productosSvc:ProductosService) { }
 
   ngOnInit() {}

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Datos del cliente</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <ion-item-divider>
+      <ion-label>
+       Cliente que lo compra
+      </ion-label>
+    </ion-item-divider>
+    <app-producto-selectable formControlName="productoId"></app-producto-selectable>
+    <ion-item-divider>
+      <ion-label>
+        Producto comprado
+      </ion-label>
+    </ion-item-divider>
+    <app-cliente-selectable formControlName="clienteId"></app-cliente-selectable>
+    <!--<ion-item-divider>
+      <ion-label>
+       Fecha y hora
+      </ion-label>
+    </ion-item-divider>-->
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{button_text}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

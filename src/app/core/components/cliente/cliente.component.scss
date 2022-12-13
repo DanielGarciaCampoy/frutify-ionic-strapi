@@ -1,0 +1,16 @@
+ion-item {
+    width: 33%;
+    display: inline-block;
+}
+
+@media (width < 1170px) {
+    ion-item {
+        width: 50%;
+    }
+}
+
+@media (width < 800px) {
+    ion-item {
+        display: inline;
+    }
+}

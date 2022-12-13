@@ -13,13 +13,13 @@ registerLocaleData(en);
 registerLocaleData(es);
 
 // Components
-import { ProductoComponent } from '.';
-import { ProductoDetailComponent } from './components';
+import { ProductoComponent, ClienteComponent } from '.';
+import { ProductoDetailComponent, ClienteDetailComponent, ClienteProductoComponent, ClienteProductoDetailComponent } from './components';
 
 @NgModule({
   // Components
   declarations: [
-    ProductoComponent, ProductoDetailComponent
+    ProductoComponent, ProductoDetailComponent, ClienteComponent, ClienteDetailComponent, ClienteProductoComponent,ClienteProductoDetailComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +42,11 @@ import { ProductoDetailComponent } from './components';
     IonicModule,
     ReactiveFormsModule,
     ProductoComponent,
-    ProductoDetailComponent
+    ProductoDetailComponent,
+    ClienteComponent,
+    ClienteDetailComponent,
+    ClienteProductoComponent,
+    ClienteProductoDetailComponent
   ],
   providers:[
     {

@@ -1,3 +1,7 @@
-<p>
-  clientela works!
-</p>
+<ion-list>
+  <ion-item>
+    <ion-button slot="start" (click)="onNewCliente()" style="margin:10px;width:50px;height:50px;--border-radius:50%" icon-only><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button>
+    <p>{{ 'clientela.registrados' | translate }}</p>
+  </ion-item>
+  <app-cliente *ngFor="let cliente of getClientela()" [cliente]="cliente" (onEdit)="onEditCliente($event)" (onDelete)="onDeleteCliente($event)"></app-cliente>
+</ion-list>

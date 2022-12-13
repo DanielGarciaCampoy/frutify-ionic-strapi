@@ -8,12 +8,13 @@
         "espIng":"Español / Inglés",
         "info":"Información",
         "modo":"Modo oscuro / claro",
-        "cliente":"Clientes"
+        "cliente":"Clientes",
+        "listaCompras":"Lista de compras"
     },
     "folder":{
         "home":"Página principal",
         "comprar":"Tienda",
-        "carrito":"Carrito"
+        "carrito":"Carritos"
     },
     "comprar":{
         "prodVen":"Productos que vendemos:"
@@ -33,5 +34,8 @@
     },
     "home":{
         "bienvenido":"¡Bienvenido a Frutify!"
+    },
+    "clientela":{
+        "registrados":"Clientes registrados:"
     }
 }

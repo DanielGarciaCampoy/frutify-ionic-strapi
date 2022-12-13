@@ -58,6 +58,7 @@ export class ProductosService {
     return this._producto;
   }
 
+  
   getProductoById(id:number){
     return this._producto.find(p=>p.id==id);
   }

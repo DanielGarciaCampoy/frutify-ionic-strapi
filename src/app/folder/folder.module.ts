@@ -21,10 +21,11 @@ import { ComprarComponent } from './components/comprar/comprar.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { AboutComponent } from './components/about/about.component';
 import { ClientelaComponent } from "./components/clientela/clientela.component";
+import { ListaComprasComponent } from './components/lista-compras/lista-compras.component';
 
 @NgModule({
     declarations: [
-        FolderPage, HomeComponent, ComprarComponent, CarritoComponent, ClientelaComponent, AboutComponent
+        FolderPage, HomeComponent, ComprarComponent, CarritoComponent, ClientelaComponent, AboutComponent, ListaComprasComponent
     ],
     imports: [
         CoreModule,

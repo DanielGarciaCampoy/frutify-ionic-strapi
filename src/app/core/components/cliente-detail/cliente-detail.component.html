@@ -1,0 +1,36 @@
+<body color-theme="dark">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title *ngIf="mode=='Edit'">{{ 'prod-detail.modificarP' | translate }}</ion-title>
+      <ion-title *ngIf="mode!='Edit'">{{ 'prod-detail.addP' | translate }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="onDismiss()"><ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon></ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">
+          {{ 'prod-detail.nombre' | translate }}
+        </ion-label>
+        <ion-input type="text" placeholder="{{ 'prod-detail.introNom' | translate }}" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          username
+        </ion-label>
+        <ion-input type="text" placeholder="username" formControlName="username"></ion-input>
+      </ion-item>
+      <!--<ion-item>
+        <ion-label position="floating">
+          Imagen<p>(opcional)</p> 
+        </ion-label>
+        <ion-input type="text" placeholder="Enlace imagen" formControlName="picture"></ion-input>
+      </ion-item>-->
+      <ion-button [disabled]="!form.valid" type="submit" style="margin-top: 2.5%;" color="success">
+        <p *ngIf="mode=='Edit'">{{  'prod-detail.modificar' | translate }}</p><p *ngIf="mode!='Edit'">{{  'prod-detail.add' | translate }}</p> &nbsp; <ion-icon name="send-outline"></ion-icon>
+      </ion-button>
+    </form>
+  </ion-content>
+</body>

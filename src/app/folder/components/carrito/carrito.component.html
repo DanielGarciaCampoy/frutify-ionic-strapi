@@ -1,0 +1,5 @@
+<ion-list *ngFor="let clienteProducto of (getClienteProductos() | async ); let i=index">
+    <app-cliente *ngFor=""></app-cliente>
+    <app-cliente-producto *ngFor="let clienteProducto of getClienteProductosByClienteId(i)" [clienteProducto]="clienteProducto" (onEdit)="onEditClienteProducto($event)" (onDelete)="onDeleteClienteProducto($event)">
+    </app-cliente-producto> 
+</ion-list>
