@@ -1,8 +1,11 @@
 <ion-content style="text-align: center;">
-    <ion-title style="margin-top: 2%; margin-bottom: 2%;">{{ 'home.bienvenido' | translate | uppercase}}</ion-title>
-    <ion-label>Estás registrado como administrador, puedes acceder a las siguientes páginas:<br></ion-label>
-    <ion-button href="/folder/comprar"><ion-icon name="pricetag"></ion-icon> CRUD tienda</ion-button>
-    <ion-button href="/folder/clientela"><ion-icon name="people"></ion-icon> CRUD clientes</ion-button>
-    <ion-button href="/folder/carrito"><ion-icon name="cart"></ion-icon>Carrito</ion-button><br>
+    <ion-title style="margin-top: 2%; margin-bottom: 2%;" [ngStyle]="{'color':this.color > 4 ? 'green' : 'red'}" (click)="colorTitulo()">
+        <b>{{ 'home.bienvenido' | translate | uppercase}}</b>
+    </ion-title>
+    <ion-label>{{ 'home.registrado' | translate }}<br></ion-label>
+    <ion-button href="/folder/comprar"><ion-icon name="pricetag"></ion-icon> CRUD {{ 'folder.comprar' | translate }}</ion-button>
+    <ion-button href="/folder/clientela"><ion-icon name="people"></ion-icon> CRUD {{ 'home.clientes' | translate }}</ion-button>
+    <ion-button href="/folder/carrito"><ion-icon name="cart"></ion-icon>{{ 'app.listaCompras' | translate }}</ion-button><br>
+    <ion-button href="/folder/about"><ion-icon name="information-circle"></ion-icon>{{ 'app.info' | translate }}</ion-button><br>
     
 </ion-content>

@@ -33,7 +33,9 @@
         "estudiante":"Estudiante de 2ºDAM" 
     },
     "home":{
-        "bienvenido":"¡Bienvenido a Frutify!"
+        "bienvenido":"¡Bienvenido a Frutify!",
+        "registrado":"Estás registrado como administrador, puedes acceder a las siguientes páginas:",
+        "clientes":"customers"
     },
     "clientela":{
         "registrados":"Clientes registrados:"

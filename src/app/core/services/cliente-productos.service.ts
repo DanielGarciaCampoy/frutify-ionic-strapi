@@ -44,6 +44,13 @@ export class ClienteProductosService {
       productoId:3,
       fechaCompra:moment().toISOString(),
       kgComprados:8.1
+    },
+    {
+      id:6,
+      clienteId:3,
+      productoId:2,
+      fechaCompra:moment().toISOString(),
+      kgComprados:10
     }
   ];
 

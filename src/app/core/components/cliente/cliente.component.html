@@ -1,5 +1,5 @@
 <ion-item *ngIf="cliente">
-  <ion-avatar style="width: 100px; height:auto">
+  <ion-avatar style="width: 100px; height:100px">
     <img *ngIf="!cliente.picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="No image">
     <img *ngIf="cliente.picture" [src]="cliente.picture" alt="Product picture">
   </ion-avatar>

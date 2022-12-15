@@ -9,15 +9,21 @@ export class ClientelaService {
   private _cliente:Cliente[] = [
     {
       id:1,
-      name:"cliente1",
-      username:"cliente1",
-      picture:""
+      name:"Juan Alberto",
+      username:"illojuan",
+      picture:"https://pbs.twimg.com/media/Ea9xEW7WAAMSnv2.jpg"
     },
     {
       id:2,
-      name:"cliente2",
-      username:"cliente2",
-      picture:""
+      name:"Kanye West",
+      username:"Ye",
+      picture:"https://media.wired.com/photos/63226fd374ce5b82a68ef212/master/w_2560%2Cc_limit/Kanye-West-Black-Skinhead-Excerpt-Culture-1205198865.jpg"
+    },
+    {
+      id:3,
+      name:"Elon Musk",
+      username:"Elon",
+      picture:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Elon_Musk_Colorado_2022_%28cropped%29.jpg/800px-Elon_Musk_Colorado_2022_%28cropped%29.jpg"
     }
   ];
 

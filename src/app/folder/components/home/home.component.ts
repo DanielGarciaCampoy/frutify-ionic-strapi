@@ -11,4 +11,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {}
 
+  public color = 0;
+  colorTitulo() {
+    this.color++;
+  }
+
 }
