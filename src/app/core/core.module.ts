@@ -15,11 +15,14 @@ registerLocaleData(es);
 // Components
 import { ProductoComponent, ClienteComponent } from '.';
 import { ProductoDetailComponent, ClienteDetailComponent, ClienteProductoComponent, ClienteProductoDetailComponent } from './components';
+import { ClienteSelectableComponent } from './components/cliente-selectable/cliente-selectable.component';
+import { ProductoSelectableComponent } from './components/producto-selectable/producto-selectable.component';
 
 @NgModule({
   // Components
   declarations: [
-    ProductoComponent, ProductoDetailComponent, ClienteComponent, ClienteDetailComponent, ClienteProductoComponent,ClienteProductoDetailComponent
+    ProductoComponent, ProductoDetailComponent, ClienteComponent, ClienteDetailComponent, ClienteProductoComponent,ClienteProductoDetailComponent,
+    ClienteSelectableComponent, ProductoSelectableComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +49,9 @@ import { ProductoDetailComponent, ClienteDetailComponent, ClienteProductoCompone
     ClienteComponent,
     ClienteDetailComponent,
     ClienteProductoComponent,
-    ClienteProductoDetailComponent
+    ClienteProductoDetailComponent,
+    ClienteSelectableComponent,
+    ProductoSelectableComponent
   ],
   providers:[
     {

@@ -5,8 +5,10 @@
       <img *ngIf="getCliente()?.picture" alt="Person picture" [src]="getCliente().picture" />
     </ion-avatar>
     <ion-label class="ion-text-center ion-text-wrap">
-      <ion-label id="haComprado"><ion-icon name="pricetag-outline"></ion-icon>Ha comprado</ion-label>
-      <b></b>
+      {{ getCliente().name }}<br>
+      <ion-icon name="pricetag-outline"></ion-icon>
+      <ion-label id="haComprado">{{ 'clienteProducto.haComprado' | translate | uppercase }}</ion-label>
+      <b>{{ clienteProducto.kgComprados }} kg -> {{ getProducto().price | currency:'EUR':true }}</b>
     </ion-label>
     <ion-avatar class="producto">
       <img *ngIf="!getProducto()?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
@@ -17,7 +19,7 @@
     <ion-button icon-only fill="clear" color="danger" (click)="onDeleteClick()"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
   </ion-item>
 
-  <!--<ion-item-options>
+<!--<ion-item-options>
     <ion-item-option (click)="onEditClick()">
       <ion-icon slot="top" name="create" ></ion-icon>
     </ion-item-option>

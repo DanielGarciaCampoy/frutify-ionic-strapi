@@ -7,6 +7,7 @@ import { lastValueFrom } from 'rxjs';
 // models, services
 import { ClienteProductoModel } from '../../models';
 import { ClientelaService, ClienteProductosService, ProductosService } from '../../services';
+import { ClienteDetailComponent } from '../cliente-detail/cliente-detail.component';
 
 @Component({
   selector: 'app-cliente-producto-detail',
@@ -24,6 +25,7 @@ export class ClienteProductoDetailComponent implements OnInit {
       this.form.controls['productoId'].setValue(clienteProducto.productoId);
       this.form.controls['clienteId'].setValue(clienteProducto.clienteId);
       this.form.controls['fechaCompra'].setValue(clienteProducto.fechaCompra);
+      this.form.controls['kgComprados'].setValue(clienteProducto.kgComprados);
       this.mode = "Edit";
     }
   }
@@ -40,11 +42,12 @@ export class ClienteProductoDetailComponent implements OnInit {
       id:[null],
       productoId:[-1, [Validators.min(1)]],
       clienteId:[-1, [Validators.min(1)]],
+      kgComprados:[Validators.required],
       fechaCompra:[null, [Validators.required]],
     });
    }
 
-  async ngOnInit() {}
+  ngOnInit() { }
 
   onSubmit() {
     this.modal.dismiss({clienteProducto: this.form.value, mode:this.mode}, 'ok');
@@ -54,5 +57,5 @@ export class ClienteProductoDetailComponent implements OnInit {
     this.modal.dismiss(null, 'cancel')
   }
   
-
+  
 }

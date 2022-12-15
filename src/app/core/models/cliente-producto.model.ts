@@ -3,4 +3,5 @@ export interface ClienteProductoModel {
     clienteId:number;
     productoId:number;
     fechaCompra:string;
+    kgComprados:number;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { ClienteProductoModel, Producto, Cliente } from '../../models';
 import { IonItemSliding } from '@ionic/angular';
 import { ClienteProductosService, ClientelaService, ProductosService } from '../../services';
+import { ClienteDetailComponent } from '../cliente-detail/cliente-detail.component';
 
 @Component({
   selector: 'app-cliente-producto',
@@ -13,9 +14,12 @@ export class ClienteProductoComponent implements OnInit {
   @Output() onEdit = new EventEmitter;
   @Output() onDelete = new EventEmitter;
   @Input() clienteProducto:ClienteProductoModel;
+
   //
+  @Input() cliente:Cliente;
+
   constructor(
-    private clientesSvc:ClientelaService,
+    private clientelaSvc:ClientelaService,
     private productosSvc:ProductosService,
     private clienteProductosSvc:ClienteProductosService
   ) { }
@@ -32,7 +36,7 @@ export class ClienteProductoComponent implements OnInit {
   getCliente():Cliente{
     var clienteId = this.clienteProducto.clienteId;
     if(clienteId)
-      return (this.clientesSvc.getClienteById(clienteId))!;
+      return (this.clientelaSvc.getClienteById(clienteId))!;
     return undefined!;
   }
 

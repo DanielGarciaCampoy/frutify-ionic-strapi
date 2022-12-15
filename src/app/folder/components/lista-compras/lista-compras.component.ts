@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { ClienteProductoModel } from 'src/app/core';
+import { ClienteProductoDetailComponent, ClienteProductoModel } from 'src/app/core';
 import { ClienteProductosService } from 'src/app/core';
 import { ClienteProductoComponent } from 'src/app/core';
 
@@ -27,9 +27,9 @@ export class ListaComprasComponent implements OnInit {
     return this.clienteProductosSvc.getClienteProductosByClienteId(id);
   }
 
-  async presentClienteProductosForm(clienteProducto:ClienteProductoModel){
+  async presentClienteProductoForm(clienteProducto:ClienteProductoModel){
     const modal = await this.modal.create({
-      component:ClienteProductoComponent,
+      component:ClienteProductoDetailComponent,
       componentProps:{
         clienteProducto:clienteProducto
       },
@@ -52,7 +52,7 @@ export class ListaComprasComponent implements OnInit {
   }
 
   onEditClienteProducto(clienteProducto: any){
-    this.presentClienteProductosForm(clienteProducto);
+    this.presentClienteProductoForm(clienteProducto);
   }
 
   async onDeleteAlert(clienteProducto: any){

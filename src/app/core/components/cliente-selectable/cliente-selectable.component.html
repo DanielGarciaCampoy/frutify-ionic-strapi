@@ -1,0 +1,25 @@
+<ion-accordion-group [multiple]="true" #accordion>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ng-container *ngIf="selectedCliente!=null">
+        <ion-avatar class="cliente">
+          <img *ngIf="!selectedCliente?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img *ngIf="selectedCliente?.picture" alt="Person picture" [src]="selectedCliente.picture" />
+        </ion-avatar>
+        <ion-label>{{selectedCliente.name}} ({{selectedCliente.username}})</ion-label>
+      </ng-container>
+      <ion-label *ngIf="!selectedCliente">Selecciona un cliente</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-list>
+        <ion-item *ngFor="let cliente of getCliente()" button detail  (click)="onClienteClicked(cliente, accordion)">
+          <ion-avatar class="cliente">
+            <img *ngIf="!cliente.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="cliente.picture" alt="Person picture" [src]="cliente.picture" />
+          </ion-avatar>
+          <ion-label>{{cliente.name}} ({{cliente.username}})</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>

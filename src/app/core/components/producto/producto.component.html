@@ -3,7 +3,7 @@
       <img *ngIf="!producto.picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="No image">
       <img *ngIf="producto.picture" [src]="producto.picture" alt="Product picture">
     </ion-avatar>
-    <ion-label style="text-align: center;">{{ producto.name }}<br> <b>{{ producto.price }} € / kg</b></ion-label>
+    <ion-label style="text-align: center;">{{ producto.name }}<br> <b>{{ producto.price | currency:'EUR':true }} / kg</b></ion-label>
     <ion-button icon-only fill="clear" (click)="onEditClick()"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
     <ion-button icon-only fill="clear" color="danger" (click)="onDeleteClick()"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
 </ion-item>

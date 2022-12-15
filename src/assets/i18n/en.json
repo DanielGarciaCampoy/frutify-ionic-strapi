@@ -37,5 +37,8 @@
     },
     "clientela":{
         "registrados":"Registered customers:"
+    },
+    "clienteProducto":{
+        "haComprado":"Has bought"
     }
 }

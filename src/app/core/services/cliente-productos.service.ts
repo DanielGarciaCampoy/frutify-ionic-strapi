@@ -14,25 +14,36 @@ export class ClienteProductosService {
       id:1,
       clienteId:1,
       productoId:1,
-      fechaCompra:moment().toISOString()
+      fechaCompra:moment().toISOString(),
+      kgComprados:2
     },
     {
       id:3,
       clienteId:2,
       productoId:7,
-      fechaCompra:moment().toISOString()
+      fechaCompra:moment().toISOString(),
+      kgComprados:1
     },
     {
       id:2,
       clienteId:1,
       productoId:4,
-      fechaCompra:moment().toISOString()
+      fechaCompra:moment().toISOString(),
+      kgComprados:4
     },
     {
-      id:2,
+      id:4,
       clienteId:1,
       productoId:6,
-      fechaCompra:moment().toISOString()
+      fechaCompra:moment().toISOString(),
+      kgComprados:1.5
+    },
+    {
+      id:5,
+      clienteId:2,
+      productoId:3,
+      fechaCompra:moment().toISOString(),
+      kgComprados:8.1
     }
   ];
 
@@ -76,6 +87,7 @@ export class ClienteProductosService {
       _clienteProducto.clienteId = clienteProducto.clienteId;
       _clienteProducto.productoId = clienteProducto.productoId;
       _clienteProducto.fechaCompra = clienteProducto.fechaCompra;
+      _clienteProducto.kgComprados = clienteProducto.kgComprados;
     }
     this._clienteProductosSubject.next(this._clienteProductos);
     
