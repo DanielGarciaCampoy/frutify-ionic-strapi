@@ -6,10 +6,31 @@
   <app-cliente *ngFor="let cliente of getClientela()" [cliente]="cliente" (onEdit)="onEditCliente($event)" (onDelete)="onDeleteCliente($event)"></app-cliente>
 </ion-list>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="help-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
-
+<!--boton ayuda-->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="setOpen(true)">
+    <ion-icon name="help-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Clientes</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">
+            <ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <p>
+        Es un <b>CRUD de clientes:</b><br>
+        <br>En esta página se muestran los clientes registrados en la plataforma, y también se puede:<br>
+        <br>&nbsp; - Añadir nuevos clientes
+        <br>&nbsp; - Modificar o borrar clientes existentes
+      </p>
+    </ion-content>
+  </ng-template>
+</ion-modal>

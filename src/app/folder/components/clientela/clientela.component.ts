@@ -84,5 +84,12 @@ export class ClientelaComponent implements OnInit {
   onDeleteCliente(cliente: any){
     this.onDeleteAlert(cliente);
    }
+
+  // Boton ayuda
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
    
 }
