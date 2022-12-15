@@ -85,4 +85,11 @@ export class ListaComprasComponent implements OnInit {
      
    }
 
+   // Boton ayuda
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
 }

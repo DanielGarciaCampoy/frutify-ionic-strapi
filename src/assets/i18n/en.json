@@ -39,6 +39,26 @@
         "registrados":"Registered customers:"
     },
     "clienteProducto":{
-        "haComprado":"Has bought"
+        "haComprado":"Has bought",
+        "clienteCompra":"Customer who buys it",
+        "productoComprado":"Product bought",
+        "compra":"Purchase",
+        "kgComprados":"KiloGrams bought"
+    },
+    "help":{
+        "aniadir":" - Add new ones with: ",
+        "modificar":" - Modify them with:  ",
+        "eliminar":" - Delete them with: ",
+
+        "crudProductos":"CRUD of products we sell",
+        "muestraProductos":"In this page the products we sell are shown, you can:",
+
+        "crudClientes":"CRUD of customers:",
+        "muestraClientes":"In this page the customers we have are shown, you can:",
+
+        "registrarCompras":" - Register new purchases with: ",
+        "modificarCompras":" - Modify purchases with:",
+        "eliminarCompras":" - Delete purchases with:",
+        "muestraCompra":"In this page every purchase made here is shown:"
     }
 }

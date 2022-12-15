@@ -26,10 +26,11 @@
     </ion-header>
     <ion-content class="ion-padding">
       <p>
-        Es un <b>CRUD de clientes:</b><br>
-        <br>En esta página se muestran los clientes registrados en la plataforma, y también se puede:<br>
-        <br>&nbsp; - Añadir nuevos clientes
-        <br>&nbsp; - Modificar o borrar clientes existentes
+        <b>{{ 'help.crudClientes' | translate }}</b><br>
+        <br><br>{{ 'help.muestraClientes' | translate }}
+        <br>&nbsp; {{ 'help.aniadir' | translate }} <ion-button style="margin:10px;width:50px;height:50px;--border-radius:50%"><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button> 
+        <br>&nbsp;{{ 'help.modificar' | translate }}  <ion-button icon-only fill="clear"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
+        <br>&nbsp; {{ 'help.eliminar' | translate }} <ion-button icon-only fill="clear" color="danger"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
       </p>
     </ion-content>
   </ng-template>

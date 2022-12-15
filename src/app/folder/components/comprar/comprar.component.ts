@@ -84,5 +84,12 @@ export class ComprarComponent implements OnInit {
    this.onDeleteAlert(producto);
     
   }
+
+  // Boton ayuda
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
   
 }

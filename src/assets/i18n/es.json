@@ -39,6 +39,26 @@
         "registrados":"Clientes registrados:"
     },
     "clienteProducto":{
-        "haComprado":"Ha comprado"
+        "haComprado":"Ha comprado",
+        "clienteCompra":"Cliente que lo compra",
+        "productoComprado":"Producto comprado",
+        "compra":"Compra",
+        "kgComprados":"KiloGramos comprados"
+    },
+    "help":{
+        "aniadir":" - Añadir nuevos con: ",
+        "modificar":" - Modificar los existentes con:  ",
+        "eliminar":" - Eliminar los existentes con: ",
+
+        "crudProductos":"CRUD de los productos de la tienda:",
+        "muestraProductos":"En esta página se muestran los productos que se venden, pudiendo:",
+        
+        "crudClientes":"CRUD de clientes:",
+        "muestraClientes":"En esta página se muestran los clientes registrados en la plataforma, y también se puede:",
+
+        "registrarCompras":" - Registrar nuevas compras con: ",
+        "modificarCompras":" - Modificar compras existentes con:",
+        "eliminarCompras":" - Eliminar compras existentes con:",
+        "muestraCompra":"En esta página se muestra cada compra que han hecho los clientes en esta plataforma, se puede:"
     }
 }

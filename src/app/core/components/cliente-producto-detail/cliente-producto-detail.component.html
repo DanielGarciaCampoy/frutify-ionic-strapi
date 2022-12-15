@@ -1,7 +1,8 @@
 <body color-theme="dark">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Datos del cliente</ion-title>
+      <ion-title *ngIf="mode=='Edit'">{{ 'prod-detail.modificar' | translate }} {{ 'clienteProducto.compra' | translate }}</ion-title>
+      <ion-title *ngIf="mode!='Edit'">{{ 'prod-detail.add' | translate }}</ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="onDismiss()">
           <ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon>
@@ -14,19 +15,19 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
       <ion-item-divider>
         <ion-label>
-         Cliente que lo compra
+         {{ 'clienteProducto.clienteCompra' | translate }}
         </ion-label>
       </ion-item-divider>
       <app-cliente-selectable formControlName="clienteId"></app-cliente-selectable>
       <ion-item-divider>
         <ion-label>
-          Producto comprado
+          {{ 'clienteProducto.productoComprado' | translate }}
         </ion-label>
       </ion-item-divider>
       <app-producto-selectable formControlName="productoId"></app-producto-selectable>
       <ion-item>
         <ion-label position="floating">
-          Kg Comprados
+          {{ 'clienteProducto.kgComprados' | translate }}
         </ion-label>
         <ion-input type="number" placeholder="kgComprados" formControlName="kgComprados"></ion-input>
       </ion-item>
