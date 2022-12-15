@@ -17,7 +17,7 @@
             <img *ngIf="!producto.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
             <img *ngIf="producto.picture" alt="Person picture" [src]="producto.picture" />
           </ion-avatar>
-          <ion-label>{{producto.name}}, {{selectedProducto.price | currency:'EUR':true}}</ion-label>
+          <ion-label>{{producto.name}}, {{producto.price | currency:'EUR':true}}</ion-label>
         </ion-item>
       </ion-list>
     </div>
