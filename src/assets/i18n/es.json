@@ -60,5 +60,8 @@
         "modificarCompras":" - Modificar compras existentes con:",
         "eliminarCompras":" - Eliminar compras existentes con:",
         "muestraCompra":"En esta página se muestra cada compra que han hecho los clientes en esta plataforma, se puede:"
+    },
+    "listaCompra":{
+        "addRegistro":"Añadir registro de compra"
     }
 }

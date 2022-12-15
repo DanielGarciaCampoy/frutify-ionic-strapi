@@ -60,5 +60,8 @@
         "modificarCompras":" - Modify purchases with:",
         "eliminarCompras":" - Delete purchases with:",
         "muestraCompra":"In this page every purchase made here is shown:"
+    },
+    "listaCompra":{
+        "addRegistro":"Add purchase record"
     }
 }

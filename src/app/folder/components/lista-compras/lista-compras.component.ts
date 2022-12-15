@@ -27,7 +27,7 @@ export class ListaComprasComponent implements OnInit {
     return this.clienteProductosSvc.getClienteProductosByClienteId(id);
   }
 
-  async presentClienteProductoForm(clienteProducto:ClienteProductoModel){
+  async presentClienteProductoForm(clienteProducto:ClienteProductoModel | null){
     const modal = await this.modal.create({
       component:ClienteProductoDetailComponent,
       componentProps:{
@@ -49,6 +49,10 @@ export class ListaComprasComponent implements OnInit {
         }
       }
     });
+  }
+
+  onNewClienteProducto() {
+    this.presentClienteProductoForm(null);
   }
 
   onEditClienteProducto(clienteProducto: any){
@@ -82,7 +86,6 @@ export class ListaComprasComponent implements OnInit {
 
   onDeleteClienteProducto(clienteProducto: any){
     this.onDeleteAlert(clienteProducto);
-     
    }
 
    // Boton ayuda

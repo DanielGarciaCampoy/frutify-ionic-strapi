@@ -2,7 +2,7 @@
   <ion-header>
     <ion-toolbar>
       <ion-title *ngIf="mode=='Edit'">{{ 'prod-detail.modificar' | translate }} {{ 'clienteProducto.compra' | translate }}</ion-title>
-      <ion-title *ngIf="mode!='Edit'">{{ 'prod-detail.add' | translate }}</ion-title>
+      <ion-title *ngIf="mode!='Edit'">{{ 'prod-detail.add' | translate }} {{ 'clienteProducto.compra' | translate }}</ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="onDismiss()">
           <ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon>
