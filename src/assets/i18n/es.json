@@ -30,7 +30,9 @@
         "introPrice":"Introduzca el precio por kg"
     },
     "about":{
-        "estudiante":"Estudiante de 2ºDAM" 
+        "estudiante":"Estudiante de 2ºDAM",
+        "autor":"Autor del proyecto",
+        "empresa":"Empresa"
     },
     "home":{
         "bienvenido":"¡Bienvenido a Frutify!",

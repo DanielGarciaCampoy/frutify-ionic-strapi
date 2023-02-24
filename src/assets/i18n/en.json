@@ -30,7 +30,9 @@
         "introPrice":"Type the price per kg"
     },
     "about":{
-        "estudiante":"2ºDAM Student" 
+        "estudiante":"2ºDAM Student",
+        "autor":"Project's author",
+        "empresa":"Company"
     },
     "home":{
         "bienvenido":"Welcome to Frutify!",

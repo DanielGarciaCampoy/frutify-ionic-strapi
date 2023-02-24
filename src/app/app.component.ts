@@ -12,7 +12,7 @@ export class AppComponent {
     { title: 'comprar', url: '/folder/comprar', icon: 'pricetag' },
     { title: 'clientes', url: '/folder/clientela', icon: 'people' },
     { title: 'listaCompras', url: '/folder/listaCompras', icon: 'list-circle' },
-    //{ title: 'carrito', url: '/folder/carrito', icon: 'cart' },
+    { title: 'carrito', url: '/folder/carrito', icon: 'cart' },
     { title: 'about', url: '/folder/about', icon: 'information-circle' }
   ];
   public labels = [];
@@ -39,11 +39,13 @@ export class AppComponent {
 
   // Modo claro / oscuro
   OnToggleDarkMode() {
+    // document.body.removeAttribute('color-theme');
     document.body.setAttribute('color-theme', 'dark');
   }
 
   OnToggleLightMode() {
-    document.body.setAttribute('color-theme', 'light');
+     document.body.removeAttribute('color-theme');
+    //document.body.setAttribute('color-theme', 'light');
   }
 
   
