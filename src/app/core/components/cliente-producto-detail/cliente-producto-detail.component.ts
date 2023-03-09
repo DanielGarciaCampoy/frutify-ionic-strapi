@@ -24,8 +24,9 @@ export class ClienteProductoDetailComponent implements OnInit {
       this.form.controls['id'].setValue(clienteProducto.id);
       this.form.controls['productoId'].setValue(clienteProducto.productoId);
       this.form.controls['clienteId'].setValue(clienteProducto.clienteId);
-      this.form.controls['fechaCompra'].setValue(clienteProducto.fechaCompra);
       this.form.controls['kgComprados'].setValue(clienteProducto.kgComprados);
+      this.form.controls['dateTime'].setValue(clienteProducto.dateTime);
+      this.form.controls['createdAt'].setValue(clienteProducto.createdAt);
       this.mode = "Edit";
     }
   }
@@ -43,7 +44,8 @@ export class ClienteProductoDetailComponent implements OnInit {
       productoId:[-1, [Validators.min(1)]],
       clienteId:[-1, [Validators.min(1)]],
       kgComprados:[Validators.required],
-      fechaCompra:[null, [Validators.required]],
+      dateTime:[null, [Validators.required]],
+      createdAt:[null, [Validators.required]]
     });
    }
 
@@ -55,6 +57,10 @@ export class ClienteProductoDetailComponent implements OnInit {
 
   onDismiss() {
     this.modal.dismiss(null, 'cancel')
+  }
+
+  onChangeDateTime(dateTime){
+    this.form.controls['dateTime'].setValue(dateTime);
   }
   
   

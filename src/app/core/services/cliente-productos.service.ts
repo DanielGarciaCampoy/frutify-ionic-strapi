@@ -72,7 +72,7 @@ export class ClienteProductosService {
           console.log(response);
           var array:ClienteProductoModel[] = (response.data as Array<any>).map<ClienteProductoModel>(clienteProducto=>{
             return {id:clienteProducto.id, 
-                    clienteId:clienteProducto.attributes.person_id.data.id, 
+                    clienteId:clienteProducto.attributes.cliente_id.data.id, 
                     productoId:clienteProducto.attributes.producto_id.data.id,
                     kgComprados:clienteProducto.attributes.kgComprados,
                     dateTime:clienteProducto.attributes.dateTime,
