@@ -1,84 +1,116 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { ProductoComponent } from '../components';
 import { Producto } from '../models/producto.model';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductosService {
+export class ProductosService implements OnDestroy {
 
-  private _producto:Producto[] = [
-    {
-      id:1,
-      name:"Naranjas",
-      price:1,
-      picture:"https://drive.google.com/uc?id=1qQVAcQkqgzZ5bA2SeenhTu739cxy0kGD"
-    },
-    {
-      id:2,
-      name:"Plátano",
-      price:2.9,
-      picture:"https://drive.google.com/uc?id=1g19m0jxLZk5pnE8jVB-5GaBZPKdYp6wm"
-    },
-    {
-      id:3,
-      name:"Sandía",
-      price:1.70,
-      picture:"https://drive.google.com/uc?id=1-9DWtgSf6lJScXe5zgz3u_913yg70ttA"
-    },
-    {
-      id:4,
-      name:"Limones",
-      price:1.70,
-      picture:"https://drive.google.com/uc?id=1nAQdfTr_IxNLQ58iWA92klkTR_lZPLY-"
-    },
-    {
-      id:5,
-      name:"Fresas",
-      price:2.50,
-      picture:"https://drive.google.com/uc?id=13ypBRHwa5XsW6-_dCK5dkwvoIqfQQhF5"
-    },
-    {
-      id:6,
-      name:"Manzanas",
-      price: 2.50,
-      picture:"https://drive.google.com/uc?id=1YFBlz8BAEJSVrlJun0MKEZiP__hVcz5e"
-    },
-    {
-      id:7,
-      name:"Uva",
-      price:2.70,
-      picture:"https://drive.google.com/uc?id=1H71KvRoPx_6tM64d-dc11bF6n6I-C9bV"
-    },
-  ];
+  private _productosSubject:BehaviorSubject<Producto[]> = new BehaviorSubject([]);
+  public _productos$ = this._productosSubject.asObservable();
+  unsubscr: () => void;
 
-  id:number = this._producto.length+1;
-  constructor() { }
-
-  getProductos(){
-    return this._producto;
+  constructor(
+    private api:ApiService
+  ) {
+    this.refresh();
+   }
+  ngOnDestroy(): void {
+    this.unsubscr();
   }
 
+  private async refresh(){
+    this.api.get('/api/productos?populate=picture').subscribe({
+      next:response=>{
+        console.log(response);
+        var array:Producto[] = (response.data as Array<any>).map<Producto>(producto=>{
+          return {id:producto.id, 
+                  name:producto.attributes.name,  
+                  price:producto.attributes.price,
+                  picture:producto.attributes.picture.data?
+                          environment.api_url+producto.attributes.picture.data.attributes.url:
+                          "" 
+          };
+        });
+        this._productosSubject.next(array);
+        
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
+  }
+
+  getProductos(){
+    return this._productosSubject.value;
+  }
   
-  getProductoById(id:number){
-    return this._producto.find(p=>p.id==id);
+  getProductoById(id:number):Promise<Producto>{
+    return new Promise<Producto>((resolve, reject)=>{
+      this.api.get(`/api/productos/${id}?populate=picture`).subscribe({
+        next:(producto)=>{
+          resolve({
+                  id:producto.id, 
+                  name:producto.attributes.name, 
+                  price:producto.attributes.price,
+                  picture:producto.attributes.picture.data?
+                          environment.api_url+producto.attributes.picture.data.attributes.url:
+                          "" 
+          });
+          
+        },
+        error:err=>{
+          reject(err);
+        }
+      });
+    });
   }
 
   deleteProductoById(id:number){
-    this._producto = this._producto.filter(p=>p.id != id);
+    this.api.delete(`/api/tasks/${id}`).subscribe({
+      next:data=>{
+        this.refresh();
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
   }
 
   addProducto(producto:Producto){
-    producto.id = this.id++;
-    this._producto.push(producto);
+    this.api.post(`/api/productos`,{
+      data:{
+        name:producto.name, 
+        price:producto.price,
+      }
+    }).subscribe({
+      next:data=>{
+        this.refresh();
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
   }
 
   updateProducto(producto:Producto) {
-    var _producto = this._producto.find(p=>p.id==producto.id);
-    if (_producto){
-      _producto.name = producto.name;
-      _producto.price = producto.price;
-      //_producto.picture = producto.picture;
-    }
+    this.api.put(`/api/productos/${producto.id}`,{
+      data:{
+        name:producto.name, 
+        price:producto.price,
+      }
+    }).subscribe({
+      next:data=>{
+        this.refresh(); 
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
   }
   
 }

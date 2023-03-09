@@ -1,58 +1,140 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Cliente } from '../models/cliente.model';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientelaService {
 
-  private _cliente:Cliente[] = [
-    {
-      id:1,
-      name:"Juan Alberto",
-      username:"illojuan",
-      picture:"https://pbs.twimg.com/media/Ea9xEW7WAAMSnv2.jpg"
-    },
-    {
-      id:2,
-      name:"Kanye West",
-      username:"Ye",
-      picture:"https://media.wired.com/photos/63226fd374ce5b82a68ef212/master/w_2560%2Cc_limit/Kanye-West-Black-Skinhead-Excerpt-Culture-1205198865.jpg"
-    },
-    {
-      id:3,
-      name:"Elon Musk",
-      username:"Elon",
-      picture:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Elon_Musk_Colorado_2022_%28cropped%29.jpg/800px-Elon_Musk_Colorado_2022_%28cropped%29.jpg"
-    }
-  ];
+  private _cliente:Cliente[] = [];
 
-  id:number = this._cliente.length+1;
-  constructor() { }
+  private _clientelaSubject:BehaviorSubject<Cliente[]> = new BehaviorSubject<Cliente[]>([]);
+  public _clientela$ = this._clientelaSubject.asObservable();
+
+  constructor(
+    public api:ApiService
+  ) {
+    this.refresh();
+  }
+
+  async refresh(){
+    this.api.get('/api/clientes?populate=picture').subscribe({
+      next:data=>{
+        console.log(data);
+        var array:Cliente[] = (data.data as Array<any>).map<Cliente>(cliente=>{
+          return {id:cliente.id, 
+                     name:cliente.attributes.name, 
+                     username:cliente.attributes.username, 
+                     picture:cliente.attributes.picture.data?
+                             environment.api_url+cliente.attributes.picture.data.attributes.url:
+                             "" 
+                  };
+        });
+        this._clientelaSubject.next(array);
+        1
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
+  }
 
   getClientela(){
-    return this._cliente;
+    return this._clientelaSubject.value;
   }
 
   getClienteById(id:number){
-    return this._cliente.find(p=>p.id==id);
+    return new Promise<Cliente>((resolve, reject)=>{
+      this.api.get(`/api/clientes/${id}?populate=picture`).subscribe({
+        next:data=>{
+          resolve({
+            id:data.data.id,
+            name:data.data.attributes.name,
+            username:data.data.attributes.username,
+            picture:data.data.attributes.picture.data?
+                    environment.api_url+data.data.attributes.picture.data?.attributes.url:
+                    ""
+          });
+          
+        },
+        error:err=>{
+          reject(err);
+        }
+      });
+    });
   }
 
   deleteClienteById(id:number){
-    this._cliente = this._cliente.filter(p=>p.id != id);
+    this.api.delete(`/api/clientes/${id}`).subscribe({
+      next:data=>{
+        this.refresh();
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
   }
 
-  addCliente(cliente:Cliente){
-    cliente.id = this.id++;
-    this._cliente.push(cliente);
-  }
-
-  updateCliente(cliente:Cliente) {
-    var _cliente = this._cliente.find(p=>p.id==cliente.id);
-    if (_cliente){
-      _cliente.name = cliente.name;
-      _cliente.username = cliente.username;
+  async addCliente(cliente:Cliente){
+    var _cliente = {
+      name:cliente.name,
+      username:cliente.username,
+    };
+    if(cliente['pictureFile']){
+      var id = await this.uploadImage(cliente['pictureFile']);
+      _cliente['picture'] = id;
     }
+    this.api.post(`/api/clientes`,{
+      data:_cliente
+    }).subscribe({
+      next:data=>{
+        this.refresh();
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
+  }
+
+  uploadImage(file){  
+    return new Promise<number>((resolve, reject)=>{
+      var formData = new FormData();
+      formData.append('files', file);
+      this.api.post("/api/upload",formData).subscribe({
+        next: data=>{
+          resolve(data[0].id);
+        },
+        error: err=>{
+          reject(err);
+        }
+      });
+    });
+    
+  }
+
+  async updateCliente(cliente:Cliente) {
+    var _person = {
+      name:cliente.name,
+      username:cliente.username,
+    };
+    if(cliente['pictureFile']){
+      var id = await this.uploadImage(cliente['pictureFile']);
+      this._cliente['picture'] = id;
+    }
+    this.api.put(`/api/clientes/${cliente.id}`,{
+      data:_person
+    }).subscribe({
+      next:data=>{
+        this.refresh(); 
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
+      
   }
 
 }
