@@ -1,1 +1,1 @@
-# frutify-ionic
+# Proyecto ADD: Angular + Ionic + Strapi
