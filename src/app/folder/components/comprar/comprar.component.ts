@@ -4,6 +4,8 @@ import { ProductoDetailComponent } from 'src/app/core/components';
 import { Producto } from 'src/app/core/models';
 import { ProductosService } from 'src/app/core/services/productos.service';
 
+import { ClienteProductosService } from 'src/app/core';
+
 @Component({
   selector: 'app-comprar',
   templateUrl: './comprar.component.html',
@@ -15,6 +17,7 @@ export class ComprarComponent implements OnInit {
     private productosSvc:ProductosService,
     private modal:ModalController,
     private alert:AlertController
+    // private clienteProductosSvc:ClienteProductosService
   ) { }
 
   ngOnInit() {}

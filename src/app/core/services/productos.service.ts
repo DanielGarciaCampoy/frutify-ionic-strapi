@@ -71,7 +71,7 @@ export class ProductosService implements OnDestroy {
   }
 
   deleteProductoById(id:number){
-    this.api.delete(`/api/tasks/${id}`).subscribe({
+    this.api.delete(`/api/productos/${id}`).subscribe({
       next:data=>{
         this.refresh();
       },
@@ -81,12 +81,13 @@ export class ProductosService implements OnDestroy {
     });
   }
 
-  addProducto(producto:Producto){
-    this.api.post(`/api/productos`,{
-      data:{
+  async addProducto(producto:Producto){
+    var _producto = {
         name:producto.name, 
         price:producto.price,
-      }
+    };
+    this.api.post(`/api/productos`,{
+      data:_producto
     }).subscribe({
       next:data=>{
         this.refresh();

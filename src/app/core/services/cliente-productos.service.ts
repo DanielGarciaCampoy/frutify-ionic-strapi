@@ -19,7 +19,7 @@ export class ClienteProductosService {
   }
 
   private async refresh(){
-    this.api.get('/api/clienteProductos?populate=producto_id,cliente_id').subscribe({
+    this.api.get('/api/cliente-productos?populate=producto_id,cliente_id').subscribe({
       next:response=>{
         console.log(response);
         var array:ClienteProductoModel[] = (response.data as Array<any>).map<ClienteProductoModel>(clienteProducto=>{
@@ -142,7 +142,7 @@ export class ClienteProductosService {
     });
   }
 
-  updateAssignment(clienteProducto:ClienteProductoModel){
+  updateClienteProducto(clienteProducto:ClienteProductoModel){
     this.api.put(`/api/clienteProductos/${clienteProducto.id}`,{
       data:{
         cliente_id:clienteProducto.clienteId,

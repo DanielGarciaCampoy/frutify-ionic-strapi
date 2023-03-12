@@ -27,8 +27,12 @@ export class ClienteSelectableComponent implements OnInit, ControlValueAccessor 
     private clientelaSvc:ClientelaService
   ) { }
 
-  writeValue(obj: any): void {
-    this.selectedCliente = this.clientelaSvc.getClienteById(obj)!;
+  async writeValue(obj: any) {
+    try {
+      this.selectedCliente = await this.clientelaSvc.getClienteById(obj);  
+    } catch (error) {
+      console.log("No se ha podido recupera los datos: "+error);
+    }
   }
   
   registerOnChange(fn: any): void {

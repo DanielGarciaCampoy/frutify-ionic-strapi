@@ -28,8 +28,12 @@ export class ProductoSelectableComponent implements OnInit, ControlValueAccessor
     private productosSvc:ProductosService
   ) { }
 
-  writeValue(obj: any): void {
-    this.selectedProducto = this.productosSvc.getProductoById(obj)!;
+  async writeValue(obj: any) {
+    try {
+      this.selectedProducto = await this.productosSvc.getProductoById(obj);
+    } catch (error) {
+      console.log("No se ha podido recueperar los datos: " + error);
+    }
   }
 
   registerOnChange(fn: any): void {

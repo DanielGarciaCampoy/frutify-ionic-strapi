@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClientProvider } from './http-client.provider';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class ApiService {
@@ -22,7 +23,7 @@ export class ApiService {
     return this.api_token;
   }
 
-  getHeader(url: string | string[], accept = null, contentType=null){
+  getHeader(url: any, accept = null, contentType=null){
     var header:any = {};
     if(accept)
       header['Accept'] = accept;
@@ -61,7 +62,7 @@ export class ApiService {
     return this.http.patch(url, body, this.getHeader(url));
   }
 
-  delete(path: string, params:Object = {}): Observable<any> {
+  delete(path: any, params:Object = {}): Observable<any> {
     var url = `${environment.api_url}${path}`;
     return this.http.delete(url, params, this.getHeader(url));
   }

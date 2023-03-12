@@ -1,17 +1,17 @@
   <ion-item>
     <ion-avatar class="person">
-      <img *ngIf="!getCliente()?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      <img *ngIf="getCliente()?.picture" alt="Person picture" [src]="getCliente().picture" />
+      <img *ngIf="!(producto$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      <img *ngIf="(producto$ | async)?.picture" alt="Person picture" [src]="(producto$ | async).picture" />
     </ion-avatar>
     <ion-label class="ion-text-center ion-text-wrap">
-      {{ getCliente().name }}<br>
+      {{ (producto$ | async).name }}<br>
       <ion-icon name="pricetag-outline"></ion-icon>
       <ion-label id="haComprado">{{ 'clienteProducto.haComprado' | translate | uppercase }}</ion-label>
-      <b>{{ clienteProducto.kgComprados }} kg = {{ this.getProducto().price! * this.clienteProducto.kgComprados | currency:'EUR':true }}</b>
+      <b>{{ clienteProducto.kgComprados }} kg = {{ (producto$ | async).price! * this.clienteProducto.kgComprados | currency:'EUR':true }}</b>
     </ion-label>
     <ion-avatar class="producto">
-      <img *ngIf="!getProducto()?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-      <img *ngIf="getProducto()?.picture" alt="Person picture" [src]="getProducto().picture" />
+      <img *ngIf="!(producto$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+      <img *ngIf="(producto$ | async)?.picture" alt="Person picture" [src]="(producto$ | async).picture" />
     </ion-avatar>
     <ion-button icon-only fill="clear" (click)="onEditClick()"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
     <ion-button icon-only fill="clear" color="danger" (click)="onDeleteClick()"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>

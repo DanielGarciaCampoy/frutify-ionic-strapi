@@ -59,7 +59,7 @@ export class ClienteProductoDetailComponent implements OnInit {
     this.modal.dismiss(null, 'cancel')
   }
 
-  onChangeDateTime(dateTime){
+  onChangeDateTime(dateTime: any){
     this.form.controls['dateTime'].setValue(dateTime);
   }
   
