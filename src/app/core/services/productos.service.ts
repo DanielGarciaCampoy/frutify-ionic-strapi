@@ -23,7 +23,7 @@ export class ProductosService implements OnDestroy {
     this.unsubscr();
   }
 
-  private async refresh(){
+  async refresh(){
     this.api.get('/api/productos?populate=picture').subscribe({
       next:response=>{
         console.log(response);
@@ -54,11 +54,11 @@ export class ProductosService implements OnDestroy {
       this.api.get(`/api/productos/${id}?populate=picture`).subscribe({
         next:(producto)=>{
           resolve({
-                  id:producto.id, 
-                  name:producto.attributes.name, 
-                  price:producto.attributes.price,
-                  picture:producto.attributes.picture.data?
-                          environment.api_url+producto.attributes.picture.data.attributes.url:
+                  id:producto.data.id, 
+                  name:producto.data.attributes.name, 
+                  price:producto.data.attributes.price,
+                  picture:producto.data.attributes.picture.data?
+                          environment.api_url+producto.data.attributes.picture.data.attributes.url:
                           "" 
           });
           

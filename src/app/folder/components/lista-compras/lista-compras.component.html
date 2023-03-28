@@ -1,11 +1,15 @@
 
-<ion-list *ngFor="let clienteProducto of (getClienteProductos() | async ); let i=index">
-  <ion-item *ngIf="i<1">
-    <ion-button slot="start" (click)="onNewClienteProducto()" style="margin:10px;width:50px;height:50px;--border-radius:50%" icon-only><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button>
-    <p>{{ 'listaCompra.addRegistro' | translate }}</p>
-  </ion-item>
-  <app-cliente-producto *ngFor="let clienteProducto of (getClienteProductosByClienteId(i) | async)" [clienteProducto]="clienteProducto" (onEdit)="onEditClienteProducto($event)" (onDelete)="onDeleteClienteProducto($event)"></app-cliente-producto> 
-</ion-list>
+<!--<ion-list *ngFor="let clienteProducto of (getClienteProductos() | async ); let i=index">-->
+  <!--<ion-item *ngIf="i<1">-->
+    <ion-list>
+      <ion-item>
+        <ion-button slot="start" (click)="onNewClienteProducto()" style="margin:10px;width:50px;height:50px;--border-radius:50%" icon-only><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button>
+        <p>{{ 'listaCompra.addRegistro' | translate }}</p>
+      </ion-item>
+      <app-cliente-producto *ngFor="let clienteProducto of (getClienteProductos() | async)" [clienteProducto]="clienteProducto" (onEdit)="onEditClienteProducto($event)" (onDelete)="onDeleteClienteProducto($event)"></app-cliente-producto> 
+    </ion-list>
+  <!--</ion-item>-->
+<!--</ion-list>-->
 
 <!--boton ayuda-->
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">

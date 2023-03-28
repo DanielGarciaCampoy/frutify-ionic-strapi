@@ -46,7 +46,7 @@ export class ClientelaService {
     return this._clientelaSubject.value;
   }
 
-  getClienteById(id:number){
+  getClienteById(id:number):Promise<Cliente>{
     return new Promise<Cliente>((resolve, reject)=>{
       this.api.get(`/api/clientes/${id}?populate=picture`).subscribe({
         next:data=>{

@@ -16,7 +16,7 @@ export class ClienteProductoComponent implements OnInit {
   @Output() onEdit = new EventEmitter;
   @Output() onDelete = new EventEmitter;
   @Input('clienteProducto') set clienteProducto(cP:ClienteProductoModel) {
-    this.clienteProducto = cP;
+    this._clienteProducto = cP;
     this.loadClienteAndProducto(cP);
   }
 
@@ -25,14 +25,14 @@ export class ClienteProductoComponent implements OnInit {
     this._cliente.next(await this.clientelaSvc.getClienteById(cP.clienteId));
   }
 
-  get clienteProducto():ClienteProductoModel {
-    return this.clienteProducto;
+  getClienteProducto():ClienteProductoModel {
+    return this._clienteProducto;
   }
 
   private _clienteProducto:ClienteProductoModel;
 
-  private _producto:BehaviorSubject<Producto> = new BehaviorSubject<Producto>({}); // null
-  private _cliente:BehaviorSubject<Cliente> = new BehaviorSubject<Cliente>({}); // null
+  private _producto:BehaviorSubject<Producto> = new BehaviorSubject<Producto>(null); // null
+  private _cliente:BehaviorSubject<Cliente> = new BehaviorSubject<Cliente>(null); // null
   producto$:Observable<Producto> = this._producto.asObservable();
   cliente$:Observable<Cliente> = this._cliente.asObservable();
 
@@ -62,12 +62,12 @@ export class ClienteProductoComponent implements OnInit {
 
   onEditClick(){
     //slide.close();
-    this.onEdit.emit(this.clienteProducto);
+    this.onEdit.emit(this._clienteProducto);
   }
 
   onDeleteClick(){
     //slide.close();
-    this.onDelete.emit(this.clienteProducto);
+    this.onDelete.emit(this._clienteProducto);
   }
 
 }
