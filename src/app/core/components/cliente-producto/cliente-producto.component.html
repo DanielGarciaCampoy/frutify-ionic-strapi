@@ -7,7 +7,7 @@
       {{ (producto$ | async)?.name }}<br>
       <ion-icon name="pricetag-outline"></ion-icon>
       <ion-label id="haComprado">{{ 'clienteProducto.haComprado' | translate | uppercase }}</ion-label>
-      <b>{{ getClienteProducto().kgComprados }} kg = {{ (producto$ | async).price! * getClienteProducto().kgComprados | currency:'EUR':true }}</b>
+      <b>{{ getClienteProducto().kgComprados }} kg = {{ (producto$ | async)?.price * getClienteProducto().kgComprados | currency:'EUR':true }}</b>
     </ion-label>
     <ion-avatar class="producto">
       <img *ngIf="!(cliente$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
