@@ -3,6 +3,10 @@ import { TranslateService } from '@ngx-translate/core';
 // import 'zone.js'
 // import 'zone.js/dist/long-stack-trace-zone.js'
 
+// login
+import { UserService } from './core/services/user.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -21,7 +25,9 @@ export class AppComponent {
 
   language = 0; // 0 español, 1 ingles
   constructor(
-    private translate: TranslateService
+    private translate: TranslateService,
+    public user:UserService,
+    private router:Router
   ) {
     this.translate.setDefaultLang('es')
   }
@@ -46,9 +52,13 @@ export class AppComponent {
   }
 
   OnToggleLightMode() {
-     document.body.removeAttribute('color-theme');
-    //document.body.setAttribute('color-theme', 'light');
+    //document.body.removeAttribute('color-theme');
+    document.body.setAttribute('color-theme', 'light');
   }
 
+  signOut(){
+    this.user.signOut();
+    this.router.navigate(['login']);
+  }
   
 }

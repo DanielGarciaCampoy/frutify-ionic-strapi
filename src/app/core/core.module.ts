@@ -18,6 +18,7 @@ import { ProductoDetailComponent, ClienteDetailComponent, ClienteProductoCompone
 import { ClienteSelectableComponent } from './components/cliente-selectable/cliente-selectable.component';
 import { ProductoSelectableComponent } from './components/producto-selectable/producto-selectable.component';
 
+
 @NgModule({
   // Components
   declarations: [
@@ -36,6 +37,7 @@ import { ProductoSelectableComponent } from './components/producto-selectable/pr
       deps: [HttpClient]
       }
       }),
+      
     ReactiveFormsModule
   ],
   exports: [

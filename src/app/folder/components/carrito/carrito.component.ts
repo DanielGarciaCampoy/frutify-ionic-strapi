@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente, ClientelaService, ProductosService } from 'src/app/core';
+import { Cliente, ClienteProductosService, ClientelaService, ProductosService } from 'src/app/core';
 
 @Component({
   selector: 'app-carrito',
@@ -10,7 +10,8 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private clientelaSvc:ClientelaService,
-    private productosSvc:ProductosService
+    private productosSvc:ProductosService,
+    private clienteProductosSvc:ClienteProductosService
   ) { }
 
   ngOnInit() {}
@@ -23,8 +24,20 @@ export class CarritoComponent implements OnInit {
     return this.productosSvc.getProductoById(productoId);
   }
 
+  getProductoByClienteId(clienteId: number) {
+    return this.productosSvc.getProductoByClienteId(clienteId);
+  }
+
   getClientela() {
     return this.clientelaSvc.getClientela();
+  }
+
+  getProductos() {
+    return this.productosSvc.getProductos();
+  }
+
+  getClienteProductosByClienteId(clienteId: number) {
+    return this.clienteProductosSvc.getClienteProductosByClienteId(clienteId);
   }
 
 }

@@ -17,6 +17,9 @@ import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 import { HttpClientNativeProvider } from './core/services/http-client-native.provider';
 import { HttpClientWebProvider } from './core/services/http-client-web.provider';
 import { HttpClientProvider } from './core/services/http-client.provider';
+import { CoreModule } from './core/core.module';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { Drivers } from '@ionic/storage';
 
 export function httpProviderFactory(
   httpNative:HTTP,
@@ -34,6 +37,10 @@ export function httpProviderFactory(
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    IonicStorageModule.forRoot({
+      name: '__tareandodb',
+          driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage]
+    }),
     HttpClientModule,
     // translate
     HttpClientModule,TranslateModule.forRoot({

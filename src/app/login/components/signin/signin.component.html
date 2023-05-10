@@ -1,0 +1,34 @@
+
+<ion-grid class="login">
+  <ion-row>
+    <ion-col>
+      <form [formGroup]="form" (ngSubmit)="onSignIn()">
+        <h1>Inicio de sesión</h1>
+        <ion-img src="../../../../assets/images/logoFrutify.png" style="width: 7.5%;"></ion-img>
+        <div class="form-button right">
+          <ion-button (click)="register()" color="primary" fill="clear">
+            <small>quiero registrarme</small>
+          </ion-button>
+        </div> 
+        
+        <ion-list style="width: 30%;">
+          <ion-item>
+            <ion-label position="stacked">
+              Email
+            </ion-label>
+            <ion-input [enterkeyhint]="'next'" autocomplete="email" type="text" formControlName="identifier"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">
+              Contraseña
+            </ion-label>
+            <ion-input (keyup.enter)="form.valid?onSignIn():null" [enterkeyhint]="'enter'" autocomplete="password" type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-list> 
+        <div class="form-button right">
+          <ion-button [disabled]="!form.valid" (click)="onSignIn()">Iniciar Sesión</ion-button>
+        </div>
+      </form>    
+    </ion-col>
+  </ion-row>
+</ion-grid>
