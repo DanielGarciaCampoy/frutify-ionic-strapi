@@ -75,5 +75,10 @@
         "iniciarSesion":"Log in",
         "noTienes":"Don't you have an account?",
         "register":"sign up"
+    },
+    "register":{
+        "register":"Sign Up",
+        "apellidos":"Last name",
+        "repita":"Repeat password"
     }
 }

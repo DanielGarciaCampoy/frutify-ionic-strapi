@@ -75,5 +75,10 @@
         "iniciarSesion":"Iniciar Sesión",
         "noTienes":"¿No tienes cuenta?",
         "register":"registarse"
+    },
+    "register":{
+        "register":"Registro",
+        "apellidos":"Apellidos",
+        "repita":"Repita contraseña"
     }
 }
