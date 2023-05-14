@@ -67,5 +67,13 @@
     },
     "listaCompra":{
         "addRegistro":"Añadir registro de compra"
+    },
+    "login":{
+        "login":"Inicio de sesión",
+        "password":"Contraseña",
+        "incorrecta":"Correo y/o contraseña incorrectas",
+        "iniciarSesion":"Iniciar Sesión",
+        "noTienes":"¿No tienes cuenta?",
+        "register":"registarse"
     }
 }

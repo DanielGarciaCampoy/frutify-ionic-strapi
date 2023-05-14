@@ -1,34 +1,44 @@
-
-<ion-grid class="login">
-  <ion-row>
-    <ion-col>
-      <form [formGroup]="form" (ngSubmit)="onSignIn()">
-        <h1>Inicio de sesión</h1>
-        <!--<ion-img src="../../../../assets/images/logoFrutify.png" style="width: 7.5%;"></ion-img>-->
-        <div class="form-button right">
-          <ion-button (click)="register()" color="primary" fill="clear">
-            <small>quiero registrarme</small>
-          </ion-button>
-        </div> 
-        
-        <ion-list>
-          <ion-item>
-            <ion-label position="stacked">
-              Email
-            </ion-label>
-            <ion-input [enterkeyhint]="'next'" autocomplete="email" type="text" formControlName="identifier"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="stacked">
-              Contraseña
-            </ion-label>
-            <ion-input (keyup.enter)="form.valid?onSignIn():null" [enterkeyhint]="'enter'" autocomplete="password" type="password" formControlName="password"></ion-input>
-          </ion-item>
-        </ion-list> 
-        <div class="form-button right">
-          <ion-button [disabled]="!form.valid" (click)="onSignIn()">Iniciar Sesión</ion-button>
-        </div>
-      </form>    
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<body>
+  <ion-grid class="login">
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="form" (ngSubmit)="onSignIn()">
+          <h1>{{ 'login.login' | translate }}</h1>
+          <ion-img src="../../../../assets/images/logoFrutify.png" style="width: 50%; margin-left: 25%;"></ion-img>
+          
+          <ion-list>
+            <ion-item>
+              <ion-label position="stacked">
+                Email
+              </ion-label>
+              <ion-input [enterkeyhint]="'next'" autocomplete="email" type="text" formControlName="identifier"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">
+                {{ 'login.password' | translate}}
+              </ion-label>
+              <ion-input (keyup.enter)="form.valid?onSignIn():null" [enterkeyhint]="'enter'" autocomplete="password" type="password" formControlName="password"></ion-input>
+            </ion-item>
+          </ion-list> 
+          <ion-label id="incorrecta" style="color: rgb(255, 70, 70); display: none;">
+            {{ 'login.incorrecta' | translate }}
+          </ion-label>
+          <div class="form-button right" style="margin-bottom: 5%;">
+            <ion-button [disabled]="!form.valid" (click)="onSignIn()">{{ 'login.iniciarSesion' | translate }}</ion-button>
+          </div>
+          <ion-label style="color: grey;">
+           {{ 'login.noTienes' | translate }}
+          </ion-label>
+          <div class="form-button right">
+            <ion-button (click)="register()" color="primary" fill="clear">
+              <small>{{ 'login.register' | translate }}</small>
+            </ion-button>
+          </div>
+        </form>    
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-button (click)="onLanguage()" style="margin:10px;width:60px;height:60px;--border-radius:50%;" color="danger"><ion-icon name="language-outline" color="light"></ion-icon></ion-button>
+  </ion-fab>
+</body>

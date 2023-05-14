@@ -67,5 +67,13 @@
     },
     "listaCompra":{
         "addRegistro":"Add purchase record"
+    },
+    "login":{
+        "login":"Sign in",
+        "password":"Password",
+        "incorrecta":"email and/or password wrong",
+        "iniciarSesion":"Log in",
+        "noTienes":"Don't you have an account?",
+        "register":"sign up"
     }
 }
