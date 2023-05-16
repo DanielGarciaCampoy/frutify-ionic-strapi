@@ -7,7 +7,7 @@
         "claro":"claro",
         "espIng":"Español / Inglés",
         "info":"Información",
-        "modo":"Modo oscuro / claro",
+        "modo":"Oscuro / claro",
         "cliente":"Clientes",
         "listaCompras":"Lista de compras"
     },
@@ -86,5 +86,9 @@
         "emailIncorrecto":"Formato de email incorrecto",
         "passwordError":"Al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número",
         "noCoincide":"Las contraseñas no coinciden"
+    },
+    "clienteDetail":{
+        "addCliente":"Añadir cliente",
+        "editCliente":"Editar cliente"
     }
 }

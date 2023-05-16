@@ -1,8 +1,8 @@
 <body color-theme="dark">
   <ion-header>
     <ion-toolbar>
-      <ion-title *ngIf="mode=='Edit'">{{ 'prod-detail.modificarP' | translate }}</ion-title>
-      <ion-title *ngIf="mode!='Edit'">{{ 'prod-detail.addP' | translate }}</ion-title>
+      <ion-title *ngIf="mode=='Edit'">{{ 'clienteDetail.editCliente' | translate }}</ion-title>
+      <ion-title *ngIf="mode!='Edit'">{{ 'clienteDetail.addCliente' | translate }}</ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="onDismiss()"><ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon></ion-button>
       </ion-buttons>
@@ -15,7 +15,7 @@
           <!-- Añadir imgs -->
           <input id="fileLoader" type="file" #fileLoader name="files" title="Load Files" hidden>
           <ion-img (click)="changePic(fileLoader)" *ngIf="currentImage.value" [src]="currentImage$ | async"></ion-img>
-          <ion-img (click)="changePic(fileLoader)" *ngIf="!currentImage.value" src="https://ionicframework.com/docs/img/demos/thumbnail.svg"></ion-img>
+          <ion-img (click)="changePic(fileLoader)" *ngIf="!currentImage.value" src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-img>
         </ion-col>
         <ion-col size="8">
           <!--Formulario-->

@@ -7,7 +7,7 @@
         "claro":"light",
         "espIng":"Spanish / English",
         "info":"About",
-        "modo":"Dark / light mode",
+        "modo":"Dark / light",
         "cliente":"Customers",
         "listaCompras":"Purchases list"
     },
@@ -86,5 +86,9 @@
         "emailIncorrecto":"Wrong email format",
         "passwordError":"At least 8 characters, caps, lowercase and a number",
         "noCoincide":"Passwords doesn't match"
+    },
+    "clienteDetail":{
+        "addCliente":"Add customer",
+        "editCliente":"Edit customer"
     }
 }

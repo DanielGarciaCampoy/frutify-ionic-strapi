@@ -25,10 +25,10 @@
           <ion-list>
 
             <!-- Modo claro / oscuro -->
-            <ion-label style="margin-left: 5%;">- {{ 'app.modo' | translate }}</ion-label>
             <ion-item>
               <ion-button (click)="OnToggleDarkMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="moon" color="light"></ion-icon></ion-button>
               <ion-button (click)="OnToggleLightMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="sunny-sharp" color="light"></ion-icon></ion-button>
+              <ion-label>{{ 'app.modo' | translate }}</ion-label>
             </ion-item>
             <!-- Cambiar idioma -->
             <ion-item lines="full">
