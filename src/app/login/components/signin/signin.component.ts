@@ -88,4 +88,11 @@ export class SigninComponent implements OnInit {
       return [];
   }
 
+  // Boton ayuda
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
 }

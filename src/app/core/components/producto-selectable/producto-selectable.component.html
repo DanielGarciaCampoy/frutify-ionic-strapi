@@ -3,7 +3,7 @@
     <ion-item slot="header" color="light">
       <ng-container *ngIf="selectedProducto!=null">
         <ion-avatar class="cliente">
-          <img *ngIf="!selectedProducto?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img *ngIf="!selectedProducto?.picture" alt="Silueta de producto" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
           <img *ngIf="selectedProducto?.picture" alt="Person picture" [src]="selectedProducto.picture" />
         </ion-avatar>
         <ion-label>{{selectedProducto.name}}, {{selectedProducto.price | currency:'EUR':true}}</ion-label>
@@ -14,7 +14,7 @@
       <ion-list>
         <ion-item *ngFor="let producto of getProducto()" button detail  (click)="onProductoClicked(producto, accordion)">
           <ion-avatar class="cliente">
-            <img *ngIf="!producto.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="!producto.picture" alt="Silueta de producto" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
             <img *ngIf="producto.picture" alt="Person picture" [src]="producto.picture" />
           </ion-avatar>
           <ion-label>{{producto.name}}, {{producto.price | currency:'EUR':true}}</ion-label>

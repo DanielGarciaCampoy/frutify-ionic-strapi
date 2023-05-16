@@ -1,6 +1,6 @@
 <ion-item *ngIf="producto">
     <ion-avatar style="width: 100px; height:auto">
-      <img *ngIf="!producto.picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="No image">
+      <img *ngIf="!producto.picture" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" alt="No image">
       <img *ngIf="producto.picture" [src]="producto.picture" alt="Product picture">
     </ion-avatar>
     <ion-label style="text-align: center;">{{ producto.name }}<br> <b>{{ producto.price | currency:'EUR':true }} / kg</b></ion-label>

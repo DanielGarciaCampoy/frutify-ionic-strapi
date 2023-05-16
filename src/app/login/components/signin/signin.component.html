@@ -38,7 +38,35 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  
+  <!-- boton flotante traducir -->
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
       <ion-button (click)="onLanguage()" style="margin:10px;width:60px;height:60px;--border-radius:50%;" color="danger"><ion-icon name="language-outline" color="light"></ion-icon></ion-button>
   </ion-fab>
+
+  <!-- boton flotante ayuda -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="setOpen(true)" color="dark">
+      <ion-icon name="help-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ 'login.login' | translate }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">
+              <ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        {{ 'login.ayudaLogin' | translate }}
+        <br><br>{{ 'login.ayudaLogin1' | translate }}
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
 </body>

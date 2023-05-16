@@ -10,7 +10,6 @@
         <span
         class="validationError"
         *ngFor="let error of errorsToArray(form.controls['first_name'].errors)">
-          <!--{{'validators.'+error | translate}}-->
           {{ error }}
         </span>
       </ion-item>
@@ -22,7 +21,6 @@
         <span
         class="validationError"
         *ngFor="let error of errorsToArray(form.controls['last_name'].errors)">
-          <!--{{'validators.'+error | translate}}-->
           {{ error }}
         </span>
       </ion-item>
@@ -31,12 +29,12 @@
           Email<span class="required" *ngIf="form.controls['email'].errors">&nbsp;&#42;</span>
         </ion-label>
         <ion-input autocomplete="email" placeHolder="usuario@dominio.com" type="text" formControlName="email"></ion-input>
-        <span
+        <small
         class="validationError"
-        *ngFor="let error of errorsToArray(form.controls['email'].errors)">
-          <!--{{'validators.'+error | translate}}-->
-          {{ error }}
-        </span>
+        *ngFor="let error of errorsToArray(form.controls['email'].errors)"
+        style="color: rgb(255, 70, 70);">
+          {{ 'register.emailIncorrecto' | translate }}
+      </small>
       </ion-item>
       <ion-item lines="none">
         <ion-label position="stacked">
@@ -47,7 +45,8 @@
           class="validationError"
           *ngIf="hasFormError('passwordProto')"
           style="color: rgb(255, 70, 70);">
-          Al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número</small>
+          {{ 'register.passwordError' | translate }}
+          </small>
       </ion-item>
       <ion-item lines="none">
         <ion-label position="stacked">
@@ -58,7 +57,7 @@
           class="validationError"
           *ngIf="hasFormError('passwordMatch') && form.get('confirmPassword').value"
           style="color: rgb(255, 70, 70);">
-          Las contraseñas no coinciden</small>
+          {{ 'register.noCoincide' | translate }}</small>
       </ion-item>
     </ion-list> 
     <div class="form-button">

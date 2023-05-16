@@ -40,7 +40,8 @@
         "clientes":"customers"
     },
     "clientela":{
-        "registrados":"Clientes registrados:"
+        "registrados":"Clientes registrados:",
+        "cambiarImagen":"Para cambiar la imagen, haz click en ella"
     },
     "clienteProducto":{
         "haComprado":"Ha comprado",
@@ -74,11 +75,16 @@
         "incorrecta":"Correo y/o contraseña incorrectas",
         "iniciarSesion":"Iniciar Sesión",
         "noTienes":"¿No tienes cuenta?",
-        "register":"registarse"
+        "register":"registarse",
+        "ayudaLogin":"Aquí podrás iniciar sesión con tu cuenta de Frutify",
+        "ayudaLogin1":"Si no tienes una, también puedes registrarte"
     },
     "register":{
         "register":"Registro",
         "apellidos":"Apellidos",
-        "repita":"Repita contraseña"
+        "repita":"Repita contraseña",
+        "emailIncorrecto":"Formato de email incorrecto",
+        "passwordError":"Al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número",
+        "noCoincide":"Las contraseñas no coinciden"
     }
 }

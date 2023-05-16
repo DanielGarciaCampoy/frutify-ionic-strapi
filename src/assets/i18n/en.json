@@ -40,7 +40,8 @@
         "clientes":"clientes"
     },
     "clientela":{
-        "registrados":"Registered customers:"
+        "registrados":"Registered customers:",
+        "cambiarImagen":"Click on the image to change it"
     },
     "clienteProducto":{
         "haComprado":"Has bought",
@@ -74,11 +75,16 @@
         "incorrecta":"email and/or password wrong",
         "iniciarSesion":"Log in",
         "noTienes":"Don't you have an account?",
-        "register":"sign up"
+        "register":"sign up",
+        "ayudaLogin":"Here you can Sign in with your Frutify account!",
+        "ayudaLogin1":"If you don't have it, you can sign up too "
     },
     "register":{
         "register":"Sign Up",
         "apellidos":"Last name",
-        "repita":"Repeat password"
+        "repita":"Repeat password",
+        "emailIncorrecto":"Wrong email format",
+        "passwordError":"At least 8 characters, caps, lowercase and a number",
+        "noCoincide":"Passwords doesn't match"
     }
 }
