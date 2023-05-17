@@ -3,6 +3,14 @@ ion-item {
     display: inline-block;
 }
 
+ion-card {
+    // width: 33%;
+    width: 350px;
+    height: 180px;
+    display: inline-block;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
 @media (width < 1170px) {
     ion-item {
         width: 50%;
@@ -13,4 +21,8 @@ ion-item {
     ion-item {
         display: inline;
     }
+}
+
+ion-icon {
+    zoom: 1.5;
 }

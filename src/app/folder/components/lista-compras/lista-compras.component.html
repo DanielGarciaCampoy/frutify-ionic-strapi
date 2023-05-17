@@ -1,41 +1,48 @@
 
-<!--<ion-list *ngFor="let clienteProducto of (getClienteProductos() | async ); let i=index">-->
-  <!--<ion-item *ngIf="i<1">-->
     <ion-list>
-      <ion-item>
+      <!--<ion-item>
         <ion-button slot="start" (click)="onNewClienteProducto()" style="margin:10px;width:50px;height:50px;--border-radius:50%" icon-only><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button>
         <p>{{ 'listaCompra.addRegistro' | translate }}</p>
-      </ion-item>
+      </ion-item>-->
       <app-cliente-producto *ngFor="let clienteProducto of (getClienteProductos() | async)" [clienteProducto]="clienteProducto" (onEdit)="onEditClienteProducto($event)" (onDelete)="onDeleteClienteProducto($event)"></app-cliente-producto> 
     </ion-list>
-  <!--</ion-item>-->
-<!--</ion-list>-->
+
+<!--aniadir-->
+<div class="fixedTop">
+  <ion-fab vertical="top" horizontal="end" slot="fixed" style="margin-top: 50px;">
+    <ion-fab-button (click)="onNewClienteProducto()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
 
 <!--boton ayuda-->
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="setOpen(true)">
-    <ion-icon name="help-outline"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-<ion-modal [isOpen]="isModalOpen">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Clientes</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="setOpen(false)">
-            <ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <p>
-        <br>{{ 'help.muestraCompra' | translate }}<br>
-        <br>&nbsp;{{ 'help.registrarCompras' | translate }}<ion-button style="margin:10px;width:50px;height:50px;--border-radius:50%"><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button> 
-        <br>&nbsp;{{ 'help.modificarCompras' | translate }}<ion-button icon-only fill="clear"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
-        <br>&nbsp;{{ 'help.eliminarCompras' | translate }}<ion-button icon-only fill="clear" color="danger"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
-      </p>
-    </ion-content>
-  </ng-template>
-</ion-modal>
+<div class="fixedBottom">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="setOpen(true)">
+      <ion-icon name="help-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Clientes</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">
+              <ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p>
+          <br>{{ 'help.muestraCompra' | translate }}<br>
+          <br>&nbsp;{{ 'help.registrarCompras' | translate }}<ion-button style="margin:10px;width:50px;height:50px;--border-radius:50%"><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button> 
+          <br>&nbsp;{{ 'help.modificarCompras' | translate }}<ion-button icon-only fill="clear"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
+          <br>&nbsp;{{ 'help.eliminarCompras' | translate }}<ion-button icon-only fill="clear" color="danger"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
+        </p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</div>

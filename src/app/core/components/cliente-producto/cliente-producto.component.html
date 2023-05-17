@@ -1,4 +1,5 @@
-  <ion-item>
+  <!--
+    <ion-item>
     <ion-avatar class="cliente">
       <img *ngIf="!(cliente$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       <img *ngIf="(cliente$ | async)?.picture" alt="Person picture" [src]="(cliente$ | async).picture" />
@@ -16,3 +17,59 @@
     <ion-button icon-only fill="clear" (click)="onEditClick()"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
     <ion-button icon-only fill="clear" color="danger" (click)="onDeleteClick()"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
   </ion-item>
+-->
+
+
+<ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-avatar class="cliente" style="width: 100px; height:100px">
+          <img *ngIf="!(cliente$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img *ngIf="(cliente$ | async)?.picture" alt="Person picture" [src]="(cliente$ | async).picture" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col style="margin-top: 10%;">
+        <ion-label class="ion-text-center ion-text-wrap" color="light">
+          <ion-icon name="pricetag-outline"></ion-icon>
+          <ion-label id="haComprado">{{ 'clienteProducto.haComprado' | translate | uppercase }}</ion-label><br>
+          <b>{{ getClienteProducto().kgComprados }} kg = {{ (producto$ | async)?.price * getClienteProducto().kgComprados | currency:'EUR':true }}</b>
+        </ion-label>
+      </ion-col>
+      <ion-col size="2.5">
+        <ion-avatar class="producto" style="width: 100px; height:100px">
+          <img *ngIf="!(producto$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          <img *ngIf="(producto$ | async)?.picture" alt="Person picture" [src]="(producto$ | async).picture" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="2">
+        <!--fab editar y eliminar-->
+        <ion-label style="color: var(--ion-background-color);">.</ion-label>
+        <ion-fab>
+          <ion-fab-button>
+            <ion-icon name="cog-sharp" title="Ajustes: editar y eliminar"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-list side="bottom">
+            <ion-fab-button (click)="onEditClick()" title="Editar">
+              <ion-icon name="pencil-outline" color="success"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button (click)="onDeleteClick()" title="Eliminar">
+              <ion-icon name="close-circle" color="danger"></ion-icon>
+            </ion-fab-button>
+          </ion-fab-list>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+    <ion-row size="4">
+      <ion-col>
+        <ion-label color="medium">Cliente:</ion-label><br>
+        <ion-label color="light"><b>{{ (cliente$ | async)?.name }}</b></ion-label>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-label color="medium">Producto:</ion-label><br>
+        <ion-label color="light"><b>{{ (producto$ | async)?.name }}</b></ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

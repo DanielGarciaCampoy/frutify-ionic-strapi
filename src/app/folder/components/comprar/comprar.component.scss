@@ -1,0 +1,15 @@
+ion-list {
+    background-color: var(--ion-background-color);   
+}
+
+.fixedBottom {
+    position: fixed;
+    bottom: 0px;
+    right: 0;
+}
+
+.fixedTop {
+    position: fixed;
+    top: 0px;
+    right: 0;
+}

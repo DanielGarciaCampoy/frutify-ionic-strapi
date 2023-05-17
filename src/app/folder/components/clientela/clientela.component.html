@@ -1,37 +1,50 @@
 <ion-list>
+  <!--
   <ion-item>
     <ion-button slot="start" (click)="onNewCliente()" style="margin:10px;width:50px;height:50px;--border-radius:50%" icon-only><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button>
     <p>{{ 'clientela.registrados' | translate }}</p>
   </ion-item>
+  -->
   <app-cliente *ngFor="let cliente of getClientela()" [cliente]="cliente" (onEdit)="onEditCliente($event)" (onDelete)="onDeleteCliente($event)"></app-cliente>
 </ion-list>
 
+<!--aniadir cliente-->
+<div class="fixedTop">
+  <ion-fab vertical="top" horizontal="end" slot="fixed" style="margin-top: 50px;">
+    <ion-fab-button (click)="onNewCliente()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
+
 <!--boton ayuda-->
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="setOpen(true)">
-    <ion-icon name="help-outline"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-<ion-modal [isOpen]="isModalOpen">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>{{ 'home.cliente' | translate }}</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="setOpen(false)">
-            <ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <p>
-        <b>{{ 'help.crudClientes' | translate }}</b><br>
-        <br><br>{{ 'help.muestraClientes' | translate }}
-        <br>&nbsp; {{ 'help.aniadir' | translate }} <ion-button style="margin:10px;width:50px;height:50px;--border-radius:50%"><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button> 
-        <br>&nbsp;{{ 'help.modificar' | translate }}  <ion-button icon-only fill="clear"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
-        <br>&nbsp; {{ 'help.eliminar' | translate }} <ion-button icon-only fill="clear" color="danger"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
-      </p>
-    </ion-content>
-  </ng-template>
-</ion-modal>
+<div class="fixedBottom">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="setOpen(true)">
+      <ion-icon name="help-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ 'home.cliente' | translate }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">
+              <ion-icon color="danger" name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p>
+          <b>{{ 'help.crudClientes' | translate }}</b><br>
+          <br><br>{{ 'help.muestraClientes' | translate }}
+          <br>&nbsp; {{ 'help.aniadir' | translate }} <ion-button style="margin:10px;width:50px;height:50px;--border-radius:50%"><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button> 
+          <br>&nbsp;{{ 'help.modificar' | translate }}  <ion-button icon-only fill="clear"><ion-icon style="zoom:1.5" name="pencil-outline" ></ion-icon></ion-button>
+          <br>&nbsp; {{ 'help.eliminar' | translate }} <ion-button icon-only fill="clear" color="danger"><ion-icon style="zoom:1.5" name="close-circle-outline" ></ion-icon></ion-button>
+        </p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</div>

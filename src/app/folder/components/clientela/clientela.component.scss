@@ -1,0 +1,19 @@
+ion-list {
+    background-color: var(--ion-background-color);
+}
+
+ion-icon {
+    zoom: 1.5;
+}
+
+.fixedBottom {
+    position: fixed;
+    bottom: 0px;
+    right: 0;
+}
+
+.fixedTop {
+    position: fixed;
+    top: 0px;
+    right: 0;
+}

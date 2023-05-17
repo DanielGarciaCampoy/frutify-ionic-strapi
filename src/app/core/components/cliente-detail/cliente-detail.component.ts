@@ -23,7 +23,7 @@ export class ClienteDetailComponent implements OnInit {
       this.form.controls['id'].setValue(cliente.id);
       this.form.controls['name'].setValue(cliente.name);
       this.form.controls['username'].setValue(cliente.username);
-      this.form.controls['picture']?.setValue(cliente.picture);
+      this.form.controls['picture'].setValue(cliente.picture);
 
       if(cliente.picture)
         this.currentImage.next(cliente.picture);
