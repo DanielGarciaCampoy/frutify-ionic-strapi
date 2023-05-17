@@ -16,7 +16,13 @@ ion-card {
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-@media (width < 1200px) {
+@media (width < 640px) {
+    ion-card {
+        width: 350px;
+    }
+}
+
+/**@media (width < 1200px) {
     ion-item {
         width: 100%;
     }
@@ -29,4 +35,4 @@ ion-card {
     #haComprado {
         display: none;
     }
-}
+}*/
