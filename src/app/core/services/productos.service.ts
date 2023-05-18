@@ -110,6 +110,10 @@ export class ProductosService implements OnDestroy {
         name:producto.name, 
         price:producto.price,
     };
+    if(producto['pictureFile']){
+      var id = await this.uploadImage(producto['pictureFile']);
+      _producto['picture'] = id;
+    }
     this.api.post(`/api/productos`,{
       data:_producto
     }).subscribe({
@@ -122,12 +126,33 @@ export class ProductosService implements OnDestroy {
     });
   }
 
-  updateProducto(producto:Producto) {
-    this.api.put(`/api/productos/${producto.id}`,{
-      data:{
+  uploadImage(file){  
+    return new Promise<number>((resolve, reject)=>{
+      var formData = new FormData();
+      formData.append('files', file);
+      this.api.post("/api/upload",formData).subscribe({
+        next: data=>{
+          resolve(data[0].id);
+        },
+        error: err=>{
+          reject(err);
+        }
+      });
+    });
+    
+  }
+
+  async updateProducto(producto:Producto) {
+    var _producto = {
         name:producto.name, 
         price:producto.price,
-      }
+    };
+    if(producto['pictureFile']){
+      var id = await this.uploadImage(producto['pictureFile']);
+      _producto['picture'] = id;
+    }
+    this.api.put(`/api/productos/${producto.id}`,{
+      data:_producto
     }).subscribe({
       next:data=>{
         this.refresh(); 

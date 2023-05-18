@@ -1,21 +1,24 @@
 <body color-theme="dark">
   <ion-app>
     <ion-split-pane *ngIf="(user.isLogged$ | async)" contentId="main-content">
-      <ion-menu contentId="main-content" type="overlay">
+      <ion-menu contentId="main-content" type="overlay" class="ionMenu">
         <ion-content>
           <ion-list id="inbox-list">
             <!--<ion-list-header style="margin-bottom: 7%;">{{ 'app.titulo' | translate }}</ion-list-header>-->
-            <ion-img src="../assets/images/logoFrutify.png" alt="logo Frutify" style="width: 60%; margin-bottom: 5%; margin-left: 15%;"></ion-img>
+            <!--<ion-button (click)="toggleMinimizar()">Minimizar</ion-button>-->
+            <ion-img src="../assets/images/logoFrutify.png" alt="logo Frutify" style="width: 60%; margin-bottom: 5%; margin-left: 15%;" class="minimizable"></ion-img>
             
             <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
               <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
                 <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-                <ion-label *ngIf="p.title=='home'">{{ 'folder.home' | translate }}</ion-label>
-                <ion-label *ngIf="p.title=='comprar'">{{ 'folder.comprar' | translate }}</ion-label>
-                <ion-label *ngIf="p.title=='clientes'">{{ 'app.cliente' | translate }}</ion-label>
-                <ion-label *ngIf="p.title=='listaCompras'">{{ 'app.listaCompras' | translate }}</ion-label>
-                <ion-label *ngIf="p.title=='carrito'">{{ 'folder.carrito' | translate }}</ion-label>
-                <ion-label *ngIf="p.title=='about'">{{ 'app.info' | translate }}</ion-label>
+                <div class="minimizable">
+                  <ion-label *ngIf="p.title=='home'">{{ 'folder.home' | translate }}</ion-label>
+                  <ion-label *ngIf="p.title=='comprar'">{{ 'folder.comprar' | translate }}</ion-label>
+                  <ion-label *ngIf="p.title=='clientes'">{{ 'app.cliente' | translate }}</ion-label>
+                  <ion-label *ngIf="p.title=='listaCompras'">{{ 'app.listaCompras' | translate }}</ion-label>
+                  <ion-label *ngIf="p.title=='carrito'">{{ 'folder.carrito' | translate }}</ion-label>
+                  <ion-label *ngIf="p.title=='about'">{{ 'app.info' | translate }}</ion-label>
+                </div>
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
@@ -25,11 +28,13 @@
           <ion-list>
 
             <!-- Modo claro / oscuro -->
-            <ion-item>
-              <ion-button (click)="OnToggleDarkMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="moon" color="light"></ion-icon></ion-button>
-              <ion-button (click)="OnToggleLightMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="sunny-sharp" color="light"></ion-icon></ion-button>
-              <ion-label>{{ 'app.modo' | translate }}</ion-label>
-            </ion-item>
+            <!--
+              <ion-item>
+                <ion-button (click)="OnToggleDarkMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="moon" color="light"></ion-icon></ion-button>
+                <ion-button (click)="OnToggleLightMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="sunny-sharp" color="light"></ion-icon></ion-button>
+                <ion-label>{{ 'app.modo' | translate }}</ion-label>
+              </ion-item>
+            -->
             <!-- Cambiar idioma -->
             <ion-item lines="full">
               <ion-button (click)="onLanguage()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon name="language-outline" color="light"></ion-icon></ion-button>

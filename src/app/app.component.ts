@@ -60,5 +60,38 @@ export class AppComponent {
     this.user.signOut();
     this.router.navigate(['login']);
   }
+
+  /** MINIMIZAR */
+  isMinimizarActive = false;
+  toggleMinimizar() {
+    if (this.isMinimizarActive) {
+      this.desMinimizar();
+    } else {
+      this.minimizar();
+    }
+  }
+
+  minimizar() {
+    this.isMinimizarActive = true
+
+    const elements = document.querySelectorAll('.minimizable') as NodeListOf<HTMLElement>;;
+    elements.forEach(element => {
+      element.style.display = 'none'
+    });
+
+    const element = document.querySelector('.ionMenu') as HTMLElement;
+    element.style.width = '50px';
+  }
+
+  desMinimizar() {
+    this.isMinimizarActive = false
+
+    const elements = document.querySelectorAll('.minimizable') as NodeListOf<HTMLElement>;;
+    elements.forEach(element => {
+      element.style.display = 'block'
+    });
+
+    
+  }
   
 }

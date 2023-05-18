@@ -117,3 +117,13 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+ion-menu {
+  --width: 250px;
+  --min-width: 50px;
+}
+
+/**PROPIO*/
+.minimizable {
+  display: block;
+}

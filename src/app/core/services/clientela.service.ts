@@ -34,7 +34,7 @@ export class ClientelaService {
                   };
         });
         this._clientelaSubject.next(array);
-        1
+
       },
       error:err=>{
         console.log(err);
@@ -116,16 +116,16 @@ export class ClientelaService {
   }
 
   async updateCliente(cliente:Cliente) {
-    var _person = {
+    var _cliente = {
       name:cliente.name,
       username:cliente.username,
     };
     if(cliente['pictureFile']){
       var id = await this.uploadImage(cliente['pictureFile']);
-      this._cliente['picture'] = id;
+      _cliente['picture'] = id;
     }
     this.api.put(`/api/clientes/${cliente.id}`,{
-      data:_person
+      data:_cliente
     }).subscribe({
       next:data=>{
         this.refresh(); 
