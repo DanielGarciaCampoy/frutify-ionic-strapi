@@ -14,7 +14,11 @@ export class UserService {
 
   private _isLogged = new BehaviorSubject<boolean>(false);
   public isLogged$ = this._isLogged.asObservable();
+  private _user = new BehaviorSubject<User>(null);
+  public user$ = this._user.asObservable();
   private user:User;
+ 
+  
   constructor(
     private api:ApiService,
     private storage:LocalStorageService,
@@ -113,7 +117,9 @@ export class UserService {
     });
   }
 
-  getUser(){
+  public getUser(){
     return this.user;
   }
+
+
 }

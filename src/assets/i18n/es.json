@@ -36,7 +36,7 @@
     },
     "home":{
         "bienvenido":"¡Bienvenido a Frutify!",
-        "registrado":"Estás registrado como administrador, puedes acceder a las siguientes páginas:",
+        "registrado":"Estás registrado como administrador, puedes acceder a todas las páginas:",
         "clientes":"customers"
     },
     "clientela":{

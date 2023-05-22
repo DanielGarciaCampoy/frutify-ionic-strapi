@@ -36,7 +36,7 @@
     },
     "home":{
         "bienvenido":"Welcome to Frutify!",
-        "registrado":"You are registered as an admin so you can access de following pages",
+        "registrado":"You are registered as an admin so you can access to all the pages",
         "clientes":"clientes"
     },
     "clientela":{

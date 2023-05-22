@@ -4,12 +4,27 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title *ngIf="folder=='home'">{{ 'folder.home' | translate }}</ion-title>
-    <ion-title *ngIf="folder=='comprar'">{{ 'folder.comprar' | translate }}</ion-title>
-    <ion-title *ngIf="folder=='clientela'">{{ 'app.cliente' | translate }}</ion-title>
-    <ion-title *ngIf="folder=='carrito'">{{ 'folder.carrito' | translate }}</ion-title>
-    <ion-title *ngIf="folder=='listaCompras'">{{ 'app.listaCompras' | translate }}</ion-title>
-    <ion-title *ngIf="folder=='about'">{{ 'app.info' | translate }}</ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-title *ngIf="folder=='home'">{{ 'folder.home' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='comprar'">{{ 'folder.comprar' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='clientela'">{{ 'app.cliente' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='carrito'">{{ 'folder.carrito' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='listaCompras'">{{ 'app.listaCompras' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='about'">{{ 'app.info' | translate }}</ion-title>
+      </ion-col>
+      <ion-col size="4">
+        <div class="mitad">
+          <ion-avatar style="width: 25px; height: 25px;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
+        </div>
+        <div class="mitad">
+          <b>{{ getUser().email }}</b>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+    
   </ion-toolbar>
 </ion-header>
 
