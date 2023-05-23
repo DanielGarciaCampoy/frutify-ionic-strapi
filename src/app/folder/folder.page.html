@@ -6,15 +6,15 @@
     </ion-buttons>
   <ion-grid>
     <ion-row>
-      <ion-col>
-        <ion-title *ngIf="folder=='home'" style="font-size: 1.5em; margin-top: 1%;">{{ 'folder.home' | translate }}</ion-title>
-        <ion-title *ngIf="folder=='comprar'" style="font-size: 1.5em; margin-top: 1%;">{{ 'folder.comprar' | translate }}</ion-title>
-        <ion-title *ngIf="folder=='clientela'" style="font-size: 1.5em; margin-top: 1%;">{{ 'app.cliente' | translate }}</ion-title>
-        <ion-title *ngIf="folder=='carrito'" style="font-size: 1.5em; margin-top: 1%;">{{ 'folder.carrito' | translate }}</ion-title>
-        <ion-title *ngIf="folder=='listaCompras'" style="font-size: 1.5em; margin-top: 1%;">{{ 'app.listaCompras' | translate }}</ion-title>
-        <ion-title *ngIf="folder=='about'" style="font-size: 1.5em; margin-top: 1%;">{{ 'app.info' | translate }}</ion-title>
+      <ion-col size="8">
+        <ion-title *ngIf="folder=='home'">{{ 'folder.home' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='comprar'">{{ 'folder.comprar' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='clientela'">{{ 'app.cliente' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='carrito'">{{ 'folder.carrito' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='listaCompras'">{{ 'app.listaCompras' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='about'">{{ 'app.info' | translate }}</ion-title>
       </ion-col>
-      <ion-col size="4">
+      <ion-col>
         <ion-item button style="height: 40px;">
           <div class="mitad">
             <ion-avatar style="width: 25px; height: 25px;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
@@ -32,7 +32,7 @@
 
 <ion-content [fullscreen]="true">
   <!--ios-->
-  <ion-header collapse="condense">
+  <!--<ion-header collapse="collapse">
     <ion-toolbar>
       <ion-title *ngIf="folder=='home'">{{ 'folder.home' | translate }}</ion-title>
       <ion-title *ngIf="folder=='comprar'">{{ 'folder.comprar' | translate }}</ion-title>
@@ -41,7 +41,7 @@
       <ion-title *ngIf="folder=='listaCompras'">{{ 'app.listaCompras' | translate }}</ion-title>
       <ion-title *ngIf="folder=='about'">{{ 'app.info' | translate }}</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header>-->
 
   <!--components-->
   <app-home *ngIf="folder=='home'"></app-home>

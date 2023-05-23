@@ -10,7 +10,7 @@
 
 <!--aniadir cliente-->
 <div class="fixedTop">
-  <ion-fab vertical="top" horizontal="end" slot="fixed" style="margin-top: 50px;">
+  <ion-fab vertical="top" horizontal="end" slot="fixed" class="add">
     <ion-fab-button (click)="onNewCliente()">
       <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>
@@ -21,7 +21,7 @@
 <div class="fixedBottom">
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="setOpen(true)">
-      <ion-icon name="help-outline"></ion-icon>
+      <ion-icon name="help-outline" style="zoom: 1;"></ion-icon>
     </ion-fab-button>
   </ion-fab>
   <ion-modal [isOpen]="isModalOpen">

@@ -24,3 +24,13 @@ app-producto {
     top: 0px;
     right: 0;
 }
+
+.add {
+    margin-top: 50px;
+}
+
+@media (width < 532px) {
+    .add {
+        margin-top: 95px;
+    }
+}
