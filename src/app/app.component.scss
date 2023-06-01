@@ -125,5 +125,27 @@ ion-menu {
 
 /**PROPIO*/
 .minimizable {
-  display: block;
+  display: block; 
+}
+
+ion-split-pane {
+  margin-top:40px;
+}
+
+#tituloHeader {
+  position: absolute; 
+  left: 0;
+  margin-left: 50px;
+  margin-top: 10px;
+  display: none;
+}
+
+@media (width < 992px) {
+  #tituloHeader {
+    display: block;
+  }
+}
+
+.userBtn {
+  justify-content: center;
 }

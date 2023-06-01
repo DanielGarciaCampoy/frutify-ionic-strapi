@@ -1,6 +1,62 @@
 <body color-theme="dark">
   <ion-app>
+    <div style="display:flex;justify-content:flex-end;width:100%;background-color:var(--ion-item-background)" *ngIf="(user.isLogged$ | async)">
+      <ion-menu-button style="position: fixed; left: 0;" color="success"></ion-menu-button>
+      
+      <!--titulo del header-->
+      <div id="tituloHeader">
+        <ion-title *ngIf="folder=='/folder/comprar'">{{ 'folder.comprar' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='/folder/clientela'">{{ 'app.cliente' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='/folder/listaCompras'">{{ 'app.listaCompras' | translate }}</ion-title>
+        <ion-title *ngIf="folder=='/folder/about'">{{ 'app.info' | translate }}</ion-title>
+      </div>
+
+      <ion-item style="height: 40px;" id="popover-button" button>
+        <div class="mitad">
+          <ion-avatar style="width: 25px; height: 25px;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
+        </div>
+        <div class="mitad">
+          <b>{{ getUser().email }}</b>
+        </div>
+      </ion-item>
+
+      <ion-popover trigger="popover-button" [dismissOnSelect]="true" side="bottom">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-item>Sesión iniciada como:</ion-item>
+              <ion-item>
+                <ion-grid>
+                  <ion-row class="userBtn">
+                    <ion-avatar style="width: 50px; height: 50px;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
+                  </ion-row>
+                  <ion-row class="userBtn">
+                    <p><b>{{ getUser().email }}</b></p>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+              <ion-item [button]="true" [detail]="false" (click)="signOut()">
+                <ion-icon name="log-out-outline" color="danger"></ion-icon>
+                <ion-label>&nbsp;&nbsp;<b>Cerrar sesión</b></ion-label>
+              </ion-item>
+              <!--<ion-item [button]="true" id="nested-trigger">More options...</ion-item>-->
+      
+              <ion-popover trigger="nested-trigger" [dismissOnSelect]="true" side="start">
+                <ng-template>
+                  <ion-content>
+                    <ion-list>
+                      <ion-item [button]="true" [detail]="false">Nested option</ion-item>
+                    </ion-list>
+                  </ion-content>
+                </ng-template>
+              </ion-popover>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </div>
     <ion-split-pane *ngIf="(user.isLogged$ | async)" contentId="main-content">
+      
       <ion-menu contentId="main-content" type="overlay" class="ionMenu">
         <ion-content>
           <ion-list id="inbox-list">
@@ -41,13 +97,13 @@
               <ion-label>&nbsp;&nbsp;{{ 'app.espIng' | translate }}</ion-label>
             </ion-item>
             <!--Cerrar sesion-->
-            <ion-item lines="full">
+            <!--<ion-item lines="full">
               <ion-button (click)="signOut()" slot="start" color="danger"
               style="margin:10px;width:50px;height:50px;--border-radius:50%">
                 <ion-icon name="log-out-outline" color="light"></ion-icon>
               </ion-button>
               <ion-label>&nbsp;&nbsp;Cerrar sesión</ion-label>
-            </ion-item>
+            </ion-item>-->
           </ion-list>
         </ion-content>
       </ion-menu>

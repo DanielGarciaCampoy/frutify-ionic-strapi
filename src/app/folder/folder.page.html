@@ -1,8 +1,8 @@
 <!--PC/android-->
-<ion-header [translucent]="true">
+<!--<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+        
     </ion-buttons>
   <ion-grid>
     <ion-row>
@@ -15,7 +15,7 @@
         <ion-title *ngIf="folder=='about'">{{ 'app.info' | translate }}</ion-title>
       </ion-col>
       <ion-col>
-        <ion-item button style="height: 40px;">
+        <ion-item style="height: 40px;" button id="popover-button">
           <div class="mitad">
             <ion-avatar style="width: 25px; height: 25px;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
           </div>
@@ -23,12 +23,35 @@
             <b>{{ getUser().email }}</b>
           </div>
         </ion-item>
+
+        <ion-popover trigger="popover-button" [dismissOnSelect]="true" side="bottom">
+          <ng-template>
+            <ion-content>
+              <ion-list>
+                <ion-item [button]="true" [detail]="false">Option 1</ion-item>
+                <ion-item [button]="true" [detail]="false">Option 2</ion-item>
+                <ion-item [button]="true" id="nested-trigger">More options...</ion-item>
+        
+                <ion-popover trigger="nested-trigger" [dismissOnSelect]="true" side="start">
+                  <ng-template>
+                    <ion-content>
+                      <ion-list>
+                        <ion-item [button]="true" [detail]="false">Nested option</ion-item>
+                      </ion-list>
+                    </ion-content>
+                  </ng-template>
+                </ion-popover>
+              </ion-list>
+            </ion-content>
+          </ng-template>
+        </ion-popover>
+
       </ion-col>
     </ion-row>
   </ion-grid>  
     
   </ion-toolbar>
-</ion-header>
+</ion-header>-->
 
 <ion-content [fullscreen]="true">
   <!--ios-->

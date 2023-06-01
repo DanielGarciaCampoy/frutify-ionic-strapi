@@ -23,4 +23,8 @@ export class FolderPage implements OnInit {
     return this.user.getUser();
   }
 
+  getFolder() {
+    return this.folder;
+  }
+
 }

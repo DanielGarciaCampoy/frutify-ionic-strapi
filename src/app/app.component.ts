@@ -5,7 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 // login
 import { UserService } from './core/services/user.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FolderPage } from './folder/folder.page';
 
 @Component({
   selector: 'app-root',
@@ -23,13 +24,23 @@ export class AppComponent {
   ];
   public labels = [];
 
+
+  folder;
   language = 0; // 0 español, 1 ingles
   constructor(
     private translate: TranslateService,
     public user:UserService,
     private router:Router
   ) {
-    this.translate.setDefaultLang('es')
+    this.translate.setDefaultLang('es');
+    this.router.events.subscribe({
+      next: value=>{
+        console.log(value);
+        if(value['url'])
+          this.folder=value['url'];
+      },
+      error:(err)=>console.log(err)
+    })
   }
 
   // Cambiar idioma
@@ -97,5 +108,6 @@ export class AppComponent {
   getUser() {
     return this.user.getUser();
   }
+  
   
 }
