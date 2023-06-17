@@ -14,7 +14,7 @@ registerLocaleData(es);
 
 // Components
 import { ProductoComponent, ClienteComponent } from '.';
-import { ProductoDetailComponent, ClienteDetailComponent, ClienteProductoComponent, ClienteProductoDetailComponent } from './components';
+import { ProductoDetailComponent, ClienteDetailComponent, ClienteProductoComponent, ClienteProductoDetailComponent, CarritosComponent } from './components';
 import { ClienteSelectableComponent } from './components/cliente-selectable/cliente-selectable.component';
 import { ProductoSelectableComponent } from './components/producto-selectable/producto-selectable.component';
 
@@ -23,7 +23,7 @@ import { ProductoSelectableComponent } from './components/producto-selectable/pr
   // Components
   declarations: [
     ProductoComponent, ProductoDetailComponent, ClienteComponent, ClienteDetailComponent, ClienteProductoComponent,ClienteProductoDetailComponent,
-    ClienteSelectableComponent, ProductoSelectableComponent
+    ClienteSelectableComponent, ProductoSelectableComponent, CarritosComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +53,8 @@ import { ProductoSelectableComponent } from './components/producto-selectable/pr
     ClienteProductoComponent,
     ClienteProductoDetailComponent,
     ClienteSelectableComponent,
-    ProductoSelectableComponent
+    ProductoSelectableComponent,
+    CarritosComponent
   ],
   providers:[
     {

@@ -4,6 +4,8 @@ import * as moment from 'moment-timezone';
 import { BehaviorSubject } from 'rxjs';
 import { ApiService } from './api.service';
 import { HttpClient } from '@angular/common/http';
+import { Producto } from '../models';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -159,6 +161,32 @@ export class ClienteProductosService {
       error:err=>{
         console.log(err);
       }
+    });
+  }
+
+  getProductoByClienteId(clienteId: number): Promise<Producto> {
+    return new Promise<Producto>((resolve, reject) => {
+      this.api.get(`/api/productos/${clienteId}?populate=clienteProductos`).subscribe({
+        next: (productoResponse) => {
+          const productoData = productoResponse.data;
+          const clienteProductos = productoData.relationships.clienteProductos.data.map(
+            (clienteProducto: any) => clienteProducto.id
+          );
+          const producto: Producto = {
+            id: productoData.id,
+            name: productoData.attributes.name,
+            price: productoData.attributes.price,
+            picture: productoData.attributes.picture.data
+              ? environment.api_url + productoData.attributes.picture.data.attributes.url
+              : "",
+            // clienteProductos: clienteProductos,
+          };
+          resolve(producto);
+        },
+        error: (err) => {
+          reject(err);
+        },
+      });
     });
   }
   

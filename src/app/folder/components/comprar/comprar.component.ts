@@ -5,6 +5,7 @@ import { Producto } from 'src/app/core/models';
 import { ProductosService } from 'src/app/core/services/productos.service';
 
 import { ClienteProductosService } from 'src/app/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-comprar',
@@ -17,10 +18,16 @@ export class ComprarComponent implements OnInit {
     private productosSvc:ProductosService,
     private modal:ModalController,
     private alert:AlertController
-    // private clienteProductosSvc:ClienteProductosService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.productosSvc._productos$.subscribe((productos) => {
+      this.productoFiltrado = productos;
+      this.actualizarProductoFiltrado('');
+    });
+    this.productosSvc.refresh();
+  }
 
   getProductos(){
     return this.productosSvc.getProductos();
@@ -93,6 +100,29 @@ export class ComprarComponent implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+
+  // searchbar
+  productoFiltrado:Producto[];
+  private _productoFiltradoSubject:BehaviorSubject<Producto[]> = new BehaviorSubject([]);
+  public productoFiltrado$ = this._productoFiltradoSubject.asObservable();
+
+  buscar ( event ) {
+      const query = event.target.value;
+      const productos = this.productosSvc.getProductos();
+        this.productoFiltrado = productos.filter(p =>
+          p.name.toLowerCase().indexOf(query) > -1
+       );
+      this.actualizarProductoFiltrado(query);
+      
+      
+  }
+
+  private actualizarProductoFiltrado(query: string) {
+    this.productoFiltrado = this.productosSvc
+      .getProductos()
+      .filter((producto) => producto.name.toLowerCase().includes(query));
+    this._productoFiltradoSubject.next(this.productoFiltrado);
   }
   
 }

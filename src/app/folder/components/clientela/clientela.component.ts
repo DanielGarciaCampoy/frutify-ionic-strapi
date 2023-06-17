@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 import { ClienteDetailComponent } from 'src/app/core/components/cliente-detail/cliente-detail.component';
 import { Cliente } from 'src/app/core/models/cliente.model';
 import { ClientelaService } from 'src/app/core/services/clientela.service';
@@ -17,7 +18,13 @@ export class ClientelaComponent implements OnInit {
     private alert:AlertController
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.clientelaSvc._clientela$.subscribe((clientes) => {
+      this.clienteFiltrado = clientes;
+      this.actualizarClienteFiltrado('');
+    });
+    this.clientelaSvc.refresh();
+  }
 
   getClientela(){
     return this.clientelaSvc.getClientela();
@@ -90,6 +97,29 @@ export class ClientelaComponent implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+
+  // searchbar
+  clienteFiltrado:Cliente[];
+  private _clienteFiltradoSubject:BehaviorSubject<Cliente[]> = new BehaviorSubject([]);
+  public clienteFiltrado$ = this._clienteFiltradoSubject.asObservable();
+
+  buscar ( event ) {
+      const query = event.target.value;
+      const clientes = this.clientelaSvc.getClientela();
+        this.clienteFiltrado = clientes.filter(c =>
+          c.name.toLowerCase().indexOf(query) > -1
+       );
+      this.actualizarClienteFiltrado(query);
+      
+      
+  }
+
+  private actualizarClienteFiltrado(query: string) {
+    this.clienteFiltrado = this.clientelaSvc
+      .getClientela()
+      .filter((cliente) => cliente.name.toLowerCase().includes(query));
+    this._clienteFiltradoSubject.next(this.clienteFiltrado);
   }
    
 }

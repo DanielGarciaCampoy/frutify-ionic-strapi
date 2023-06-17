@@ -1,25 +1,3 @@
-  <!--
-    <ion-item>
-    <ion-avatar class="cliente">
-      <img *ngIf="!(cliente$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      <img *ngIf="(cliente$ | async)?.picture" alt="Person picture" [src]="(cliente$ | async).picture" />
-    </ion-avatar>
-    <ion-label class="ion-text-center ion-text-wrap">
-      {{ (cliente$ | async)?.name }}<br>
-      <ion-icon name="pricetag-outline"></ion-icon>
-      <ion-label id="haComprado">{{ 'clienteProducto.haComprado' | translate | uppercase }}</ion-label>
-      <b>{{ getClienteProducto().kgComprados }} kg = {{ (producto$ | async)?.price * getClienteProducto().kgComprados | currency:'EUR':true }}</b>
-    </ion-label>
-    <ion-avatar class="producto">
-      <img *ngIf="!(producto$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-      <img *ngIf="(producto$ | async)?.picture" alt="Person picture" [src]="(producto$ | async).picture" />
-    </ion-avatar>
-    <ion-button icon-only fill="clear" (click)="onEditClick()"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
-    <ion-button icon-only fill="clear" color="danger" (click)="onDeleteClick()"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
-  </ion-item>
--->
-
-
 <ion-card>
   <ion-grid>
     <ion-row>

@@ -37,7 +37,7 @@ export class ProductosService implements OnDestroy {
           };
         });
         this._productosSubject.next(array);
-        
+                
       },
       error:err=>{
         console.log(err);
@@ -66,30 +66,6 @@ export class ProductosService implements OnDestroy {
         error:err=>{
           reject(err);
         }
-      });
-    });
-  }
-
-  getProductoByClienteId(clienteId:number): Promise<Producto> {
-    return new Promise<Producto>((resolve, reject) => {
-      this.api.get(`/api/productos/${clienteId}?populate=clienteProductos`).subscribe({
-        next: (producto) => {
-          const clienteProductos = producto.data.relationships.clienteProductos.data.map(
-            (clienteProducto: any) => clienteProducto.id
-          );
-          resolve({
-            id: producto.data.id,
-            name: producto.data.attributes.name,
-            price: producto.data.attributes.price,
-            picture: producto.data.attributes.picture.data
-              ? environment.api_url + producto.data.attributes.picture.data.attributes.url
-              : "",
-            // clienteProductos: clienteProductos,
-          });
-        },
-        error: (err) => {
-          reject(err);
-        },
       });
     });
   }

@@ -33,6 +33,9 @@
                   <ion-row class="userBtn">
                     <p><b>{{ getUser().email }}</b></p>
                   </ion-row>
+                  <ion-row class="userBtn">
+                    (Administrador)
+                  </ion-row>
                 </ion-grid>
               </ion-item>
               <ion-item [button]="true" [detail]="false" (click)="signOut()">
@@ -84,13 +87,13 @@
           <ion-list>
 
             <!-- Modo claro / oscuro -->
-            <!--
-              <ion-item>
+            
+              <!--<ion-item>
                 <ion-button (click)="OnToggleDarkMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="moon" color="light"></ion-icon></ion-button>
                 <ion-button (click)="OnToggleLightMode()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon slot="start" name="sunny-sharp" color="light"></ion-icon></ion-button>
                 <ion-label>{{ 'app.modo' | translate }}</ion-label>
-              </ion-item>
-            -->
+              </ion-item>-->
+            
             <!-- Cambiar idioma -->
             <ion-item lines="full">
               <ion-button (click)="onLanguage()" style="margin:10px;width:50px;height:50px;--border-radius:50%" color="success"><ion-icon name="language-outline" color="light"></ion-icon></ion-button>

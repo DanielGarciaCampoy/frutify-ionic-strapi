@@ -21,6 +21,12 @@ app-producto {
     right: 0;
 }
 
+ion-searchbar {
+    background-color: var(--ion-item-background);
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
 .add {
     margin-top: 50px;
 }
