@@ -6,6 +6,7 @@ import { ApiService } from './api.service';
 import { HttpClient } from '@angular/common/http';
 import { Producto } from '../models';
 import { environment } from 'src/environments/environment';
+import { ProductosService } from './productos.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class ClienteProductosService {
   constructor(
     private api:ApiService,
     // private http: HttpClient
+    private productosSvc:ProductosService
   ) { 
     this.refresh();
   }
@@ -164,7 +166,7 @@ export class ClienteProductosService {
     });
   }
 
-  getProductoByClienteId(clienteId: number): Promise<Producto> {
+  /*getProductoByClienteId(clienteId: number): Promise<Producto> {
     return new Promise<Producto>((resolve, reject) => {
       this.api.get(`/api/productos/${clienteId}?populate=clienteProductos`).subscribe({
         next: (productoResponse) => {
@@ -188,6 +190,51 @@ export class ClienteProductosService {
         },
       });
     });
-  }
+  }*/
+  /*getProductosByClienteId(clienteId: number): Promise<Producto[]> {
+  return new Promise<Producto[]>((resolve, reject) => {
+    this.api.get(`/api/productos/${clienteId}?populate=clienteProductos`).subscribe({
+      next: (response) => {
+        const producto = response.data;
+        const clienteProductos = producto.relationships.clienteProductos.data.map(
+          (clienteProducto: any) => clienteProducto.id
+        );
+        const productos: Producto[] = producto.attributes.productos.map((productoData: any) => ({
+          id: productoData.id,
+          name: productoData.attributes.name,
+          price: productoData.attributes.price,
+          picture: productoData.attributes.picture.data
+            ? environment.api_url + productoData.attributes.picture.data.attributes.url
+            : "",
+        }));
+        resolve(productos);
+      },
+      error: (err) => {
+        reject(err);
+      },
+    });
+  });
+}*/
+getProductosByClienteId(clienteId: number): Promise<Producto[]> {
+  return new Promise<Producto[]>((resolve, reject) => {
+    this.getClienteProductosByClienteId(clienteId)
+      .then((clienteProductos) => {
+        const promises = clienteProductos.map((clienteProducto) => {
+          return this.productosSvc.getProductoById(clienteProducto.productoId);
+        });
+
+        Promise.all(promises)
+          .then((productos) => {
+            resolve(productos);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
   
 }

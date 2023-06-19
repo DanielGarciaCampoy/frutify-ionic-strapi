@@ -11,37 +11,75 @@ export class CarritosComponent implements OnInit {
 
   // @Input() cliente:Cliente
   // @Input() producto:Producto
-  producto: Producto;
+  //producto: Producto;
+
+  clientes: Cliente[];
+
   constructor(
     private clientelaSvc:ClientelaService,
     private productosSvc:ProductosService,
     private clienteProductosSvc:ClienteProductosService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.cargarClientes();
+  }
 
   getClienteByClienteId(clienteId: number) {
     return this.clientelaSvc.getClienteById(clienteId);
   }
 
-  getProductoByProductoId(productoId:number) {
+  /*getProductoByProductoId(productoId:number) {
     return this.productosSvc.getProductoById(productoId);
-  }
+  }*/
 
-  getProductoByClienteId(clienteId: number) {
-    return this.clienteProductosSvc.getProductoByClienteId(clienteId);
+  getProductosByClienteId(clienteId: number) {
+    return this.clienteProductosSvc.getProductosByClienteId(clienteId);
   }
 
   getClientela() {
     return this.clientelaSvc.getClientela();
   }
 
-  getProductos() {
-    return this.productosSvc.getProductos();
+  async cargarClientes() {
+    try {
+      const clientes = await this.clientelaSvc.getClientela();
+      clientes.forEach((cliente) => {
+        this.productosPorCliente[cliente.id] = [];
+      });
+      await this.cargarProductosPorCliente();
+    } catch (error) {
+      console.error('Error al cargar los clientes:', error);
+    }
   }
 
-  getClienteProductosByClienteId(clienteId: number) {
+  /*getProductos() {
+    return this.productosSvc.getProductos();
+  }*/
+
+  /*getClienteProductosByClienteId(clienteId: number) {
     return this.clienteProductosSvc.getClienteProductosByClienteId(clienteId);
+  }*/
+
+  // 
+  productosPorCliente: { [clienteId: number]: Producto[] } = {};
+
+  async cargarProductosPorCliente() {
+    const clientes = await this.getClientela();
+    const promises = clientes.map((cliente) => {
+      return this.getProductosByClienteId(cliente.id);
+    });
+    const productosPorCliente = await Promise.all(promises);
+
+    clientes.forEach((cliente, index) => {
+      this.productosPorCliente[cliente.id] = productosPorCliente[index];
+    });
+
+    console.log(this.productosPorCliente);
+  }
+
+  getProductosPorCliente(clienteId: number): Producto[] {
+    return this.productosPorCliente[clienteId] || [];
   }
 
 }

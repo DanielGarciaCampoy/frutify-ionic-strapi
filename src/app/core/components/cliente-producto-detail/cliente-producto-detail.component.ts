@@ -44,8 +44,8 @@ export class ClienteProductoDetailComponent implements OnInit {
       productoId:[-1, [Validators.min(1)]],
       clienteId:[-1, [Validators.min(1)]],
       kgComprados:[Validators.required],
-      dateTime:[null, [Validators.required]],
-      createdAt:[null, [Validators.required]]
+      dateTime:[null],
+      createdAt:[null]
     });
    }
 

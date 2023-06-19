@@ -6,7 +6,8 @@
           <img *ngIf="!selectedCliente?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
           <img *ngIf="selectedCliente?.picture" alt="Person picture" [src]="selectedCliente.picture" />
         </ion-avatar>
-        <ion-label>{{selectedCliente.name}} ({{selectedCliente.username}})</ion-label>
+        <ion-label class="contenido" *ngIf="selectedCliente.name != null">{{selectedCliente.name}} ({{selectedCliente.username}})</ion-label>
+        <ion-label class="contenido selec" *ngIf="selectedCliente.name == null">Selecciona el cliente:</ion-label>
       </ng-container>
       <ion-label *ngIf="!selectedCliente">Selecciona un cliente</ion-label>
     </ion-item>
@@ -17,7 +18,7 @@
             <img *ngIf="!cliente.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
             <img *ngIf="cliente.picture" alt="Person picture" [src]="cliente.picture" />
           </ion-avatar>
-          <ion-label>{{cliente.name}} ({{cliente.username}})</ion-label>
+          <ion-label class="contenido">{{cliente.name}} ({{cliente.username}})</ion-label>
         </ion-item>
       </ion-list>
     </div>
