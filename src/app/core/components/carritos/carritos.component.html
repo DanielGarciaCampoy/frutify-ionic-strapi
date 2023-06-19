@@ -1,9 +1,9 @@
 <ion-card>
-  <ng-container *ngFor="let cliente of clientes">
+  <ng-container *ngFor="let cliente of getClientela()">
       Cliente: {{ cliente.name }}
-    <ng-container *ngFor="let producto of getProductosPorCliente(cliente.id)">
+    <!--<ng-container *ngFor="let producto of productosPorCliente[cliente.id]">
       Producto: {{ producto.name }} <br>
-    </ng-container>
+    </ng-container>-->
     <br>
   </ng-container>
 </ion-card>

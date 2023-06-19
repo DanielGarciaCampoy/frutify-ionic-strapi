@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ClienteProductosService, ClientelaService, ProductosService } from '../../services';
 import { Cliente, Producto } from '../../models';
+import { error } from 'console';
+import { resolve } from 'dns';
+import { rejects } from 'assert';
 
 @Component({
   selector: 'app-carritos',
@@ -14,6 +17,7 @@ export class CarritosComponent implements OnInit {
   //producto: Producto;
 
   clientes: Cliente[];
+  productosPorCliente: { [key: number]: Producto[] } = {};
 
   constructor(
     private clientelaSvc:ClientelaService,
@@ -21,8 +25,13 @@ export class CarritosComponent implements OnInit {
     private clienteProductosSvc:ClienteProductosService
   ) { }
 
-  ngOnInit() {
-    this.cargarClientes();
+  async ngOnInit() {
+    /*try {
+      this.clientes = await this.clientelaSvc.getClientela();
+      await Promise.all(this.clientes.map(cliente => this.getProductosByClienteId(cliente.id)));
+    } catch (error) {
+      console.error(error);
+    }*/
   }
 
   getClienteByClienteId(clienteId: number) {
@@ -33,15 +42,22 @@ export class CarritosComponent implements OnInit {
     return this.productosSvc.getProductoById(productoId);
   }*/
 
-  getProductosByClienteId(clienteId: number) {
-    return this.clienteProductosSvc.getProductosByClienteId(clienteId);
-  }
-
   getClientela() {
     return this.clientelaSvc.getClientela();
   }
 
-  async cargarClientes() {
+  async getProductosByClienteId(clienteId: number) {
+    // return this.clienteProductosSvc.getProductosByClienteId(clienteId);
+    try {
+      const productos = await this.clienteProductosSvc.getProductosByClienteId(clienteId);
+      console.log('Productos:', productos);
+      this.productosPorCliente[clienteId] = productos;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  /*async cargarClientes() {
     try {
       const clientes = await this.clientelaSvc.getClientela();
       clientes.forEach((cliente) => {
@@ -51,7 +67,7 @@ export class CarritosComponent implements OnInit {
     } catch (error) {
       console.error('Error al cargar los clientes:', error);
     }
-  }
+  }*/
 
   /*getProductos() {
     return this.productosSvc.getProductos();
@@ -62,7 +78,7 @@ export class CarritosComponent implements OnInit {
   }*/
 
   // 
-  productosPorCliente: { [clienteId: number]: Producto[] } = {};
+  /*productosPorCliente: { [clienteId: number]: Producto[] } = {};
 
   async cargarProductosPorCliente() {
     const clientes = await this.getClientela();
@@ -80,6 +96,6 @@ export class CarritosComponent implements OnInit {
 
   getProductosPorCliente(clienteId: number): Producto[] {
     return this.productosPorCliente[clienteId] || [];
-  }
+  }*/
 
 }
