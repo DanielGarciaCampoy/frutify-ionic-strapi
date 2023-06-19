@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {}
 
-  public color = 0;
+  /*public color = 0;
   colorTitulo() {
     this.color++;
-  }
+  }*/
 
 }

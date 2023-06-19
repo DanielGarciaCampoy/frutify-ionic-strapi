@@ -32,12 +32,23 @@
     "about":{
         "estudiante":"2ºDAM Student",
         "autor":"Project's author",
-        "empresa":"Company"
+        "empresa":"Company",
+        "rrss":"Social Media",
+        "encuentranos":"Find us!"
     },
     "home":{
         "bienvenido":"Welcome to Frutify!",
         "registrado":"You are registered as an admin so you can access to all the pages",
-        "clientes":"clientes"
+        "clientes":"clientes",
+        "desliza":"Swipe to the right to see all the functions of the page",
+
+        "productos":"List of products we sell",
+        "productos2":"You can add, delete and edit them",
+
+        "clientes1":"List of clients",
+        "clientes2":"List of clients that we have had, you can add new ones, delete or edit them",
+
+        "listaCompras":"List of purchases made, next to the kilos sold and the price of it"
     },
     "clientela":{
         "registrados":"Registered customers:",

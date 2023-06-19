@@ -32,12 +32,23 @@
     "about":{
         "estudiante":"Estudiante de 2ºDAM",
         "autor":"Autor del proyecto",
-        "empresa":"Empresa"
+        "empresa":"Empresa",
+        "rrss":"Redes Sociales",
+        "encuentranos":"¡Encuentranos!"
     },
     "home":{
         "bienvenido":"¡Bienvenido a Frutify!",
         "registrado":"Estás registrado como administrador, puedes acceder a todas las páginas:",
-        "clientes":"customers"
+        "clientes":"customers",
+        "desliza":"Desliza a la derecha para ver las funciones de nuestra web",
+
+        "productos":"Lista de productos que vendemos",
+        "productos2":"Pudiendo añadir nuevos, eliminar y modificarlos",
+
+        "clientes1":"Lista de clientes",
+        "clientes2":"Lista de clientes que hemos tenido, puediendo añadir nuevos, eliminar y modificar",
+
+        "listaCompras":"Lista de todas las compras que se han hecho en el local junto al número de kilos y euros de coste"
     },
     "clientela":{
         "registrados":"Clientes registrados:",
