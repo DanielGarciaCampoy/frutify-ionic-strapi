@@ -66,7 +66,8 @@
         "cliente":"Client",
         "Producto":"Product",
         "selecCliente":"Select the client",
-        "selecProducto":"Select the product"
+        "selecProducto":"Select the product",
+        "fecha":"DATE"
     },
     "help":{
         "aniadir":" - Add new ones with: ",
@@ -108,5 +109,8 @@
     "clienteDetail":{
         "addCliente":"Add customer",
         "editCliente":"Edit customer"
+    },
+    "calendario":{
+        "calendario":"Calendar"
     }
 }

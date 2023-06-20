@@ -22,10 +22,12 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { AboutComponent } from './components/about/about.component';
 import { ClientelaComponent } from "./components/clientela/clientela.component";
 import { ListaComprasComponent } from './components/lista-compras/lista-compras.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
     declarations: [
-        FolderPage, HomeComponent, ComprarComponent, CarritoComponent, ClientelaComponent, AboutComponent, ListaComprasComponent
+        FolderPage, HomeComponent, ComprarComponent, CarritoComponent, ClientelaComponent, AboutComponent, ListaComprasComponent, CalendarioComponent
     ],
     imports: [
         CoreModule,
@@ -35,6 +37,7 @@ import { ListaComprasComponent } from './components/lista-compras/lista-compras.
         FolderPageRoutingModule,
         ReactiveFormsModule,
         HttpClientModule,
+        FullCalendarModule,
         TranslateModule.forChild({
             loader: {
                 provide: TranslateLoader,

@@ -10,6 +10,7 @@
         <ion-title *ngIf="folder=='/folder/clientela'">{{ 'app.cliente' | translate }}</ion-title>
         <ion-title *ngIf="folder=='/folder/listaCompras'">{{ 'app.listaCompras' | translate }}</ion-title>
         <ion-title *ngIf="folder=='/folder/carrito'">{{ 'folder.carrito' | translate }}</ion-title>
+        <ion-label *ngIf="folder=='/folder/calendario'">{{ 'calendario.calendario' | translate }}</ion-label>
         <ion-title *ngIf="folder=='/folder/about'">{{ 'app.info' | translate }}</ion-title>
       </div>
 
@@ -78,6 +79,7 @@
                   <ion-label *ngIf="p.title=='clientes'">{{ 'app.cliente' | translate }}</ion-label>
                   <ion-label *ngIf="p.title=='listaCompras'">{{ 'app.listaCompras' | translate }}</ion-label>
                   <ion-label *ngIf="p.title=='carrito'">{{ 'folder.carrito' | translate }}</ion-label>
+                  <ion-label *ngIf="p.title=='calendario'">{{ 'calendario.calendario' | translate }}</ion-label>
                   <ion-label *ngIf="p.title=='about'">{{ 'app.info' | translate }}</ion-label>
                 </div>
               </ion-item>

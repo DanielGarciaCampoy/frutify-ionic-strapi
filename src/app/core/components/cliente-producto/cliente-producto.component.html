@@ -10,8 +10,9 @@
       <ion-col style="margin-top: 10%;">
         <ion-label class="ion-text-center ion-text-wrap" color="light">
           <ion-icon name="pricetag-outline"></ion-icon>
-          <ion-label id="haComprado">{{ 'clienteProducto.haComprado' | translate | uppercase }}</ion-label><br>
-          <b>{{ getClienteProducto().kgComprados }} kg = {{ (producto$ | async)?.price * getClienteProducto().kgComprados | currency:'EUR':true }}</b>
+          <ion-label id="haComprado" color="medium">{{ 'clienteProducto.haComprado' | translate | uppercase }}:</ion-label><br>
+          <b>{{ getClienteProducto().kgComprados }} kg = {{ (producto$ | async)?.price * getClienteProducto().kgComprados | currency:'EUR':true }}</b><br>
+          <!--<ion-icon name="calendar-outline"></ion-icon><ion-label color="medium"> {{ 'clienteProducto.fecha' | translate }}: </ion-label><b>{{ getFecha() }}</b>-->
         </ion-label>
       </ion-col>
       <ion-col size="2.5">
@@ -43,7 +44,10 @@
         <ion-label color="medium">{{ 'clienteProducto.cliente' | translate }}:</ion-label><br>
         <ion-label color="light"><b>{{ (cliente$ | async)?.name }}</b></ion-label>
       </ion-col>
-      <ion-col></ion-col>
+      <ion-col size="4.5">
+        <ion-icon name="calendar-outline"></ion-icon><ion-label color="medium"> {{ 'clienteProducto.fecha' | translate }}:</ion-label><br>
+        <ion-label color="light"><b>{{ getFecha() }}</b></ion-label>
+      </ion-col>
       <ion-col>
         <ion-label color="medium">{{ 'clienteProducto.Producto' | translate }}:</ion-label><br>
         <ion-label color="light"><b>{{ (producto$ | async)?.name }}</b></ion-label>

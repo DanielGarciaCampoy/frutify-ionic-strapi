@@ -1,4 +1,4 @@
-<ion-searchbar animated (ionChange)="buscar($event)" placeholder="{{ 'comprar.buscar' | translate }}" [debounce]="50" class="producto"></ion-searchbar>
+<ion-searchbar animated (ionChange)="buscar($event)" placeholder="{{ 'comprar.buscar' | translate }}" [debounce]="20" class="producto"></ion-searchbar>
 <ion-list>
   <app-producto *ngFor="let producto of productoFiltrado" [producto]="producto" (onEdit)="onEditProducto($event)" (onDelete)="onDeleteProducto($event)"></app-producto>
 </ion-list>

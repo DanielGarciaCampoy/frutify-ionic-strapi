@@ -17,13 +17,14 @@ import { ProductoComponent, ClienteComponent } from '.';
 import { ProductoDetailComponent, ClienteDetailComponent, ClienteProductoComponent, ClienteProductoDetailComponent, CarritosComponent } from './components';
 import { ClienteSelectableComponent } from './components/cliente-selectable/cliente-selectable.component';
 import { ProductoSelectableComponent } from './components/producto-selectable/producto-selectable.component';
+import { ClienteProductoCalendarioComponent } from './components/cliente-producto-calendario/cliente-producto-calendario.component';
 
 
 @NgModule({
   // Components
   declarations: [
     ProductoComponent, ProductoDetailComponent, ClienteComponent, ClienteDetailComponent, ClienteProductoComponent,ClienteProductoDetailComponent,
-    ClienteSelectableComponent, ProductoSelectableComponent, CarritosComponent
+    ClienteSelectableComponent, ProductoSelectableComponent, CarritosComponent, ClienteProductoCalendarioComponent
   ],
   imports: [
     CommonModule,

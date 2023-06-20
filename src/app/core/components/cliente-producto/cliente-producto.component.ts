@@ -29,6 +29,18 @@ export class ClienteProductoComponent implements OnInit {
     return this._clienteProducto;
   }
 
+  getFecha(): string {
+    if (this._clienteProducto && this._clienteProducto.createdAt) {
+      let createdAt = this._clienteProducto.createdAt;
+      if (typeof createdAt === 'string') {
+        createdAt = new Date(createdAt);
+      }
+      const formattedDate = createdAt.toISOString().split('T')[0];
+      return formattedDate;
+    }
+    return '';
+  }
+
   private _clienteProducto:ClienteProductoModel;
 
   private _producto:BehaviorSubject<Producto> = new BehaviorSubject<Producto>(null); // null
