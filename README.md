@@ -1,6 +1,6 @@
 # Proyecto ADD: Angular + Ionic + Strapi
 
-* Vídeo funcionamiento de la app: 
+* Vídeo funcionamiento de la app: https://www.youtube.com/watch?v=KjqXcqjlMQs
 
 * Cuenta para iniciar sesión: 
   correo: a@abc.com
