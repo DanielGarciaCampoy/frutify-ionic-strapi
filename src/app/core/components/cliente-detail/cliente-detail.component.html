@@ -4,7 +4,7 @@
       <ion-title *ngIf="mode=='Edit'">{{ 'clienteDetail.editCliente' | translate }}</ion-title>
       <ion-title *ngIf="mode!='Edit'">{{ 'clienteDetail.addCliente' | translate }}</ion-title>
       <ion-buttons slot="end">
-        <ion-button (click)="onDismiss()"><ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon></ion-button>
+        <ion-button (click)="onDismiss()"><ion-icon color="danger" name="close-outline" class="zoom15"></ion-icon></ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
@@ -38,7 +38,7 @@
               </ion-label>
               <ion-input type="text" placeholder="Enlace imagen" formControlName="picture"></ion-input>
             </ion-item>-->
-            <ion-button [disabled]="!form.valid" type="submit" style="margin-top: 2.5%;" color="success">
+            <ion-button [disabled]="!form.valid" type="submit" class="margin25" color="success">
               <p *ngIf="mode=='Edit'">{{  'prod-detail.modificar' | translate }}</p><p *ngIf="mode!='Edit'">{{  'prod-detail.add' | translate }}</p> &nbsp; <ion-icon name="send-outline"></ion-icon>
             </ion-button>
           </form>

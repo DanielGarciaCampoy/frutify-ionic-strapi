@@ -2,25 +2,6 @@
   UN NGCONTAINER que recorra la lista de usuarios y dentro de el pongo el usuario y 
   para la lista de productos tengo que hacer otro ngcointainer que recorra la lista de asignaciones
 -->
-<!--
-<ng-container *ngFor="let cliente of getClientela()">
-  
-  <ion-item>
-    <ion-avatar style="width: 100px; height:100px">
-      <img *ngIf="!cliente.picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="No image">
-      <img *ngIf="cliente.picture" [src]="cliente.picture" alt="Product picture">
-    </ion-avatar>
-    <p style="margin-left: 5%;"> <ion-icon name="cart" style="transform: (1.5);"></ion-icon> <b>&nbsp;{{cliente.name}} ({{cliente.username}})</b> ha comprado:</p>
-  </ion-item>
--->
-<!--
-<ng-container *ngFor="let cliente of getClientela()">
-  <h2>{{cliente.name}}</h2>
-  <ng-container *ngFor="let producto of getClienteProductosByClienteId(cliente.id) | async">
-    <p>{{ getProductos().name }}</p>
-  </ng-container>
-</ng-container>
--->
 <ion-list>
 
   <app-carritos></app-carritos>

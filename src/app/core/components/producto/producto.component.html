@@ -1,24 +1,13 @@
-<!--
-<ion-item *ngIf="producto">
-    <ion-avatar style="width: 100px; height:auto">
-      <img *ngIf="!producto.picture" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" alt="No image">
-      <img *ngIf="producto.picture" [src]="producto.picture" alt="Product picture">
-    </ion-avatar>
-    <ion-label style="text-align: center;">{{ producto.name }}<br> <b>{{ producto.price | currency:'EUR':true }} / kg</b></ion-label>
-    <ion-button icon-only fill="clear" (click)="onEditClick()"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
-    <ion-button icon-only fill="clear" color="danger" (click)="onDeleteClick()"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
-</ion-item>
--->
 <ion-card *ngIf="producto">
   <ion-grid>
     <ion-row>
       <ion-col size="4">
-        <ion-avatar style="width: 100px; height:100px">
+        <ion-avatar>
           <img *ngIf="!producto.picture" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" alt="No image">
           <img *ngIf="producto.picture" [src]="producto.picture" alt="Product picture">
         </ion-avatar>
       </ion-col>
-      <ion-col style="margin-top: 10%;">
+      <ion-col class="margin">
         <ion-row>
           <ion-col>
             <ion-label color="medium">{{ 'prod-detail.nombre' | translate }}: </ion-label><br>

@@ -2,21 +2,20 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-avatar class="cliente" style="width: 100px; height:100px">
+        <ion-avatar class="cliente">
           <img *ngIf="!(cliente$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
           <img *ngIf="(cliente$ | async)?.picture" alt="Person picture" [src]="(cliente$ | async).picture" />
         </ion-avatar>
       </ion-col>
-      <ion-col style="margin-top: 10%;">
+      <ion-col class="margin10">
         <ion-label class="ion-text-center ion-text-wrap" color="light">
           <ion-icon name="pricetag-outline"></ion-icon>
           <ion-label id="haComprado" color="medium">{{ 'clienteProducto.haComprado' | translate | uppercase }}:</ion-label><br>
           <b>{{ getClienteProducto().kgComprados }} kg = {{ (producto$ | async)?.price * getClienteProducto().kgComprados | currency:'EUR':true }}</b><br>
-          <!--<ion-icon name="calendar-outline"></ion-icon><ion-label color="medium"> {{ 'clienteProducto.fecha' | translate }}: </ion-label><b>{{ getFecha() }}</b>-->
         </ion-label>
       </ion-col>
       <ion-col size="2.5">
-        <ion-avatar class="producto" style="width: 100px; height:100px">
+        <ion-avatar class="producto">
           <img *ngIf="!(producto$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
           <img *ngIf="(producto$ | async)?.picture" alt="Person picture" [src]="(producto$ | async).picture" />
         </ion-avatar>

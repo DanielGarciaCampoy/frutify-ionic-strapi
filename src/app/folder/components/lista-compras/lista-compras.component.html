@@ -7,7 +7,7 @@
 <div class="fixedTop">
   <ion-fab vertical="top" horizontal="end" slot="fixed" class="add">
     <ion-fab-button (click)="onNewClienteProducto()">
-      <ion-icon name="add-outline" style="zoom: 1.5;"></ion-icon>
+      <ion-icon name="add-outline" class="zoom15"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </div>
@@ -26,7 +26,7 @@
           <ion-title>Clientes</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="setOpen(false)">
-              <ion-icon color="danger" name="close-outline" style="zoom: 1.5;"></ion-icon>
+              <ion-icon color="danger" name="close-outline" class="zoom15"></ion-icon>
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
@@ -34,9 +34,9 @@
       <ion-content class="ion-padding">
         <p>
           <br>{{ 'help.muestraCompra' | translate }}<br>
-          <br>&nbsp;{{ 'help.registrarCompras' | translate }}<ion-button style="margin:10px;width:50px;height:50px;--border-radius:50%"><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button> 
-          <br>&nbsp;{{ 'help.modificarCompras' | translate }}<ion-button icon-only fill="clear"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
-          <br>&nbsp;{{ 'help.eliminarCompras' | translate }}<ion-button icon-only fill="clear" color="danger"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
+          <br>&nbsp;{{ 'help.registrarCompras' | translate }}<ion-button class="add"><ion-icon class="zoom2" name="add-outline"></ion-icon></ion-button> 
+          <br>&nbsp;{{ 'help.modificarCompras' | translate }}<ion-button icon-only fill="clear"><ion-icon class="zoom15" name="create-outline" ></ion-icon></ion-button>
+          <br>&nbsp;{{ 'help.eliminarCompras' | translate }}<ion-button icon-only fill="clear" color="danger"><ion-icon class="zoom15" name="trash-outline" ></ion-icon></ion-button>
         </p>
       </ion-content>
     </ng-template>

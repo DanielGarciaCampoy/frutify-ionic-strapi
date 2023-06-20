@@ -4,7 +4,7 @@
       <ion-col>
         <form [formGroup]="form" (ngSubmit)="onSignIn()">
           <h1>{{ 'login.login' | translate }}</h1>
-          <ion-img src="../../../../assets/images/logoFrutify.png" style="width: 50%; margin-left: 25%;"></ion-img>
+          <ion-img src="../../../../assets/images/logoFrutify.png"></ion-img>
           
           <ion-list>
             <ion-item>
@@ -23,10 +23,10 @@
           <ion-label id="incorrecta" style="color: rgb(255, 70, 70); display: none;">
             {{ 'login.incorrecta' | translate }}
           </ion-label>
-          <div class="form-button right" style="margin-bottom: 5%;">
+          <div class="form-button right mb-5">
             <ion-button [disabled]="!form.valid" (click)="onSignIn()">{{ 'login.iniciarSesion' | translate }}</ion-button>
           </div>
-          <ion-label style="color: grey;">
+          <ion-label class="colorGris">
            {{ 'login.noTienes' | translate }}
           </ion-label>
           <div class="form-button right">

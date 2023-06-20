@@ -166,55 +166,6 @@ export class ClienteProductosService {
     });
   }
 
-  /*getProductoByClienteId(clienteId: number): Promise<Producto> {
-    return new Promise<Producto>((resolve, reject) => {
-      this.api.get(`/api/productos/${clienteId}?populate=clienteProductos`).subscribe({
-        next: (productoResponse) => {
-          const productoData = productoResponse.data;
-          const clienteProductos = productoData.relationships.clienteProductos.data.map(
-            (clienteProducto: any) => clienteProducto.id
-          );
-          const producto: Producto = {
-            id: productoData.id,
-            name: productoData.attributes.name,
-            price: productoData.attributes.price,
-            picture: productoData.attributes.picture.data
-              ? environment.api_url + productoData.attributes.picture.data.attributes.url
-              : "",
-            // clienteProductos: clienteProductos,
-          };
-          resolve(producto);
-        },
-        error: (err) => {
-          reject(err);
-        },
-      });
-    });
-  }*/
-  /*getProductosByClienteId(clienteId: number): Promise<Producto[]> {
-  return new Promise<Producto[]>((resolve, reject) => {
-    this.api.get(`/api/productos/${clienteId}?populate=clienteProductos`).subscribe({
-      next: (response) => {
-        const producto = response.data;
-        const clienteProductos = producto.relationships.clienteProductos.data.map(
-          (clienteProducto: any) => clienteProducto.id
-        );
-        const productos: Producto[] = producto.attributes.productos.map((productoData: any) => ({
-          id: productoData.id,
-          name: productoData.attributes.name,
-          price: productoData.attributes.price,
-          picture: productoData.attributes.picture.data
-            ? environment.api_url + productoData.attributes.picture.data.attributes.url
-            : "",
-        }));
-        resolve(productos);
-      },
-      error: (err) => {
-        reject(err);
-      },
-    });
-  });
-}*/
 getProductosByClienteId(clienteId: number): Promise<Producto[]> {
   return new Promise<Producto[]>((resolve, reject) => {
     this.getClienteProductosByClienteId(clienteId)

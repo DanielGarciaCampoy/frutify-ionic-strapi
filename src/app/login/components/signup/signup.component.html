@@ -30,9 +30,8 @@
         </ion-label>
         <ion-input autocomplete="email" placeHolder="usuario@dominio.com" type="text" formControlName="email"></ion-input>
         <small
-        class="validationError"
-        *ngFor="let error of errorsToArray(form.controls['email'].errors)"
-        style="color: rgb(255, 70, 70);">
+        class="validationError colorRojo"
+        *ngFor="let error of errorsToArray(form.controls['email'].errors)">
           {{ 'register.emailIncorrecto' | translate }}
       </small>
       </ion-item>
@@ -42,9 +41,8 @@
         </ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
         <small
-          class="validationError"
-          *ngIf="hasFormError('passwordProto')"
-          style="color: rgb(255, 70, 70);">
+          class="validationError colorRojo"
+          *ngIf="hasFormError('passwordProto')">
           {{ 'register.passwordError' | translate }}
           </small>
       </ion-item>
@@ -54,9 +52,8 @@
         </ion-label>
         <ion-input (keyup.enter)="form.valid?onRegister():null" [enterkeyhint]="'enter'" type="password" formControlName="confirmPassword"></ion-input>
         <small
-          class="validationError"
-          *ngIf="hasFormError('passwordMatch') && form.get('confirmPassword').value"
-          style="color: rgb(255, 70, 70);">
+          class="validationError colorRojo"
+          *ngIf="hasFormError('passwordMatch') && form.get('confirmPassword').value">
           {{ 'register.noCoincide' | translate }}</small>
       </ion-item>
     </ion-list> 
