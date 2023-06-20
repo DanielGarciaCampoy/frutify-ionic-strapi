@@ -40,12 +40,12 @@
     </ion-row>
     <ion-row size="4">
       <ion-col>
-        <ion-label color="medium">Cliente:</ion-label><br>
+        <ion-label color="medium">{{ 'clienteProducto.cliente' | translate }}:</ion-label><br>
         <ion-label color="light"><b>{{ (cliente$ | async)?.name }}</b></ion-label>
       </ion-col>
       <ion-col></ion-col>
       <ion-col>
-        <ion-label color="medium">Producto:</ion-label><br>
+        <ion-label color="medium">{{ 'clienteProducto.Producto' | translate }}:</ion-label><br>
         <ion-label color="light"><b>{{ (producto$ | async)?.name }}</b></ion-label>
       </ion-col>
     </ion-row>

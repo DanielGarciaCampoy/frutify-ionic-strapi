@@ -17,7 +17,9 @@
         "carrito":"Carritos"
     },
     "comprar":{
-        "prodVen":"Productos que vendemos:"
+        "prodVen":"Productos que vendemos:",
+        "busca":"Busca entre los elementos con la barra de búsqueda:",
+        "buscar":"Buscar producto"
     },
     "prod-detail":{
         "addP":"Añadir producto",
@@ -52,14 +54,19 @@
     },
     "clientela":{
         "registrados":"Clientes registrados:",
-        "cambiarImagen":"Para cambiar la imagen, haz click en ella"
+        "cambiarImagen":"Para cambiar la imagen, haz click en ella",
+        "buscar":"Buscar cliente"
     },
     "clienteProducto":{
         "haComprado":"Ha comprado",
         "clienteCompra":"Cliente que lo compra",
         "productoComprado":"Producto comprado",
         "compra":"Compra",
-        "kgComprados":"KiloGramos comprados"
+        "kgComprados":"KiloGramos comprados",
+        "cliente":"Cliente",
+        "Producto":"Producto",
+        "selecCliente":"Selecciona el cliente",
+        "selecProducto":"Selecciona el producto"
     },
     "help":{
         "aniadir":" - Añadir nuevos con: ",

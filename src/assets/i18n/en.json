@@ -17,7 +17,9 @@
         "carrito":"Carts"
     },
     "comprar":{
-        "prodVen":"Products we sell:"
+        "prodVen":"Products we sell:",
+        "busca":"Search the items with the searchbar:",
+        "buscar":"Search product"
     },
     "prod-detail":{
         "addP":"Add product",
@@ -52,14 +54,19 @@
     },
     "clientela":{
         "registrados":"Registered customers:",
-        "cambiarImagen":"Click on the image to change it"
+        "cambiarImagen":"Click on the image to change it",
+        "buscar":"Search client"
     },
     "clienteProducto":{
         "haComprado":"Has bought",
         "clienteCompra":"Customer who buys it",
         "productoComprado":"Product bought",
         "compra":"Purchase",
-        "kgComprados":"KiloGrams bought"
+        "kgComprados":"KiloGrams bought",
+        "cliente":"Client",
+        "Producto":"Product",
+        "selecCliente":"Select the client",
+        "selecProducto":"Select the product"
     },
     "help":{
         "aniadir":" - Add new ones with: ",

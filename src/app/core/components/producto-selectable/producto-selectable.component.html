@@ -7,9 +7,8 @@
           <img *ngIf="selectedProducto?.picture" alt="Person picture" [src]="selectedProducto.picture" />
         </ion-avatar>
         <ion-label *ngIf="selectedProducto.name != null" class="contenido">{{selectedProducto.name}}, {{selectedProducto.price | currency:'EUR':true}}</ion-label>
-        <ion-label *ngIf="selectedProducto.name == null" class="contenido selec">Selecciona el producto:</ion-label>
+        <ion-label *ngIf="selectedProducto.name == null" class="contenido selec">{{ 'clienteProducto.selecProducto' | translate }}:</ion-label>
       </ng-container>
-      <ion-label *ngIf="!selectedProducto">Selecciona un producto</ion-label>
     </ion-item>
     <div class="ion-padding" slot="content">
       <ion-list>

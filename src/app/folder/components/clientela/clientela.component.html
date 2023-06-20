@@ -1,4 +1,4 @@
-<ion-searchbar animated (ionChange)="buscar($event)" placeholder="Buscar cliente" [debounce]="50"></ion-searchbar>
+<ion-searchbar animated (ionChange)="buscar($event)" placeholder="{{ 'clientela.buscar' | translate }}" [debounce]="50" class="producto"></ion-searchbar>
 <ion-list>
   <app-cliente *ngFor="let cliente of clienteFiltrado" [cliente]="cliente" (onEdit)="onEditCliente($event)" (onDelete)="onDeleteCliente($event)"></app-cliente>
 </ion-list>
@@ -38,6 +38,7 @@
           <br>&nbsp; {{ 'help.aniadir' | translate }} <ion-button style="margin:10px;width:50px;height:50px;--border-radius:50%"><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button> 
           <br>&nbsp;{{ 'help.modificar' | translate }}  <ion-button icon-only fill="clear"><ion-icon style="zoom:1.5" name="pencil-outline" ></ion-icon></ion-button>
           <br>&nbsp; {{ 'help.eliminar' | translate }} <ion-button icon-only fill="clear" color="danger"><ion-icon style="zoom:1.5" name="close-circle-outline" ></ion-icon></ion-button>
+          <br>&nbsp; - {{ 'comprar.busca' | translate }} <ion-searchbar></ion-searchbar>
         </p>
       </ion-content>
     </ng-template>
