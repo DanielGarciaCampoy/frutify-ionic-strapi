@@ -1,7 +1,9 @@
 # Proyecto ADD: Angular + Ionic + Strapi
 
-Vídeo funcionamiento de la app: 
+* Vídeo funcionamiento de la app: 
 
-* Cuenta para iniciar sesión:
-correo: a@abc.com
-contraseña: 123456
+* Cuenta para iniciar sesión: 
+  correo: a@abc.com
+  contraseña: 123456
+
+* Descargar Base de datos Strapi: 
